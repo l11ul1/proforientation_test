@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    .container
+        h1.text-center #{question.question_body}
+        form(method="POST", action='/nextQuestion')
+            each answer, i in question.question_answers
+                input(type='radio', name='answer', value=answer, id=i)
+                label(for=i) #{answer}
+                br
+
+            input(type='submit')
+
+    
+    
