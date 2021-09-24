@@ -137,11 +137,6 @@ app.get("/login", (req, res) => {
   res.render("login");
 });
 
-app.get("/finish", (req, res) => {
-  res.render("finish");
-  question_answers = 1;
-});
-
 //when you press submit answer it will trigger this method
 app.post("/nextQuestion", (req, res) => {
   let currentQuestionIndex = questionsByCategory[currentCategoryIndex].indexOf(

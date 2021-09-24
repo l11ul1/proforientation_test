@@ -12,7 +12,6 @@ block content
     script.
         var xValues = ["category A", "Category B", "Category C", "Category D", "Category E"];
         var yValues = [parseInt("#{rightA}"), parseInt("#{rightB}"), parseInt("#{rightC}"), parseInt("#{rightD}"), parseInt("#{rightE}")];
-        var testValues = [1, 2, 3, 4, 5];
         var barColors = ["red", "green","blue","orange","brown"];
 
         new Chart("myChart", {
@@ -22,7 +21,7 @@ block content
             datasets: [{
             label: "You",
             borderColor: "#6200ee",
-            data: testValues
+            data: yValues
             }]
         },
         options: {
