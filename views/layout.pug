@@ -1,6 +1,3 @@
-
-
-
 doctype html
 html
     head
@@ -14,20 +11,20 @@ html
     body.bg-custom
 
         nav.navbar.navbar-expand-lg.navbar-light.bg-light
-            a.navbar-brand(href='/') Knowledge Base
+            a.navbar-brand(href='/questions') Knowledge Base
             button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNavAltMarkup' aria-controls='navbarNavAltMarkup' aria-expanded='false' aria-label='Toggle navigation')
                 span.navbar-toggler-icon
             #navbarNavAltMarkup.collapse.navbar-collapse
                 .navbar-nav
-                    a.nav-item.nav-link.active(href='#')
+                    a.nav-item.nav-link.active(href='/')
                         | Home 
                         span.sr-only (current)
                     a.nav-item.nav-link(href='#') Features
                     a.nav-item.nav-link(href='#') Pricing
             .navbar-nav
-                a(href='/login').main-color-inversed.btn.bg-light
+                a(href='/user/login').main-color-inversed.btn.bg-light
                     i.fa.fa-sign-in.fa-2x
-                a(href='/signUp').main-color-inversed.btn.align-self-center.bg-light
+                a(href='/user/signUp').main-color-inversed.btn.align-self-center.bg-light
                     | Register
                  
         block content
