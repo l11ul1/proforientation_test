@@ -7,7 +7,7 @@ block content
             .title.col-12.mt-4
                 p.h1.text-center.mt-4.font-weight-bold Sign Up
             
-            form(action='#' method='POST').mt-4.mx-1.mx-md-4
+            form(method='POST' action='/user/signup').mt-4.mx-1.mx-md-4
                 div.d-flex.flex-row.align-items-center.mb-4 
                     i.fa.fa-user.fa-lg.me-3.fa-fw.pr-2
                     .form-outline.flex-fill.mb-0
@@ -22,10 +22,10 @@ block content
                         input.form-control(type='password', name='password' placeholder='Password')
                 div.d-flex.justify-content-center.mb-1       
                     .form-check
-                        - var terms = checked
                         input.form-check-input.me-2(id='terms', type='checkbox' checked=false)
                         label.form-check-label(for='terms') 
                         | I agree all statements in 
-                        a(href='#!') Terms of service
+                        a(href='#!') Terms of service                         
                 div.d-flex.justify-content-center
-                    #SignUp.btn(type='submit').main-color.m-4 Register
+                    input(type='submit' value="Register")#SignUp.btn.main-color.m-4
+                    

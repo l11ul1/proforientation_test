@@ -8,7 +8,7 @@ block content
             h1.text-center.mt-4 #{question.question_body}
 
         #question-answers.mt-4
-            form(method="POST", action='/nextQuestion').w-100
+            form(method="POST", action='/questions/nextQuestion').w-100
                 each answer, i in question.question_answers
                     .option.form-check.my-2.border-bottom.rounded-bottom
                         input(type='radio', name='answer', value=answer, id=i).form-check-input

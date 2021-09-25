@@ -13,9 +13,10 @@ app.use(bodyParser.json());
 const users = require("./routes/users");
 const questions = require("./routes/questions");
 const { json } = require("express");
+const toastr = require("toastr");
 
 const PORT = 8888;
-const mongoDBUrl =
+const url =
   "mongodb+srv://admin:3989302As@cluster0.o2m8r.mongodb.net/prof_orientation_test_db?retryWrites=true&w=majority";
 const connectionOptions = { useNewUrlParser: true, useUnifiedTopology: true };
 const Schema = mongoose.Schema;
@@ -31,10 +32,6 @@ app.use("/questions", questions);
 //connect pug files
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
-
-app.get("/login", (req, res) => {
-  res.render("login");
-});
 
 app.get("/", (req, res) => {
   res.render("index");
