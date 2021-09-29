@@ -12,7 +12,11 @@ app.use(bodyParser.json());
 
 const users = require("./routes/users");
 const questions = require("./routes/questions");
+<<<<<<< HEAD
 const payment = require("./routes/payment");
+=======
+const userCabinet = require("./routes/userCabinet");
+>>>>>>> 3d792587aa9bbf35d10a78860f6a1ce42324866c
 
 const { json } = require("express");
 const toastr = require("toastr");
@@ -30,7 +34,12 @@ app.listen(PORT, () => {
 
 app.use("/user", users);
 app.use("/questions", questions);
+<<<<<<< HEAD
 app.use("/payment", payment);
+=======
+app.use("/user/cabinet/", userCabinet);
+
+>>>>>>> 3d792587aa9bbf35d10a78860f6a1ce42324866c
 //connect pug files
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
