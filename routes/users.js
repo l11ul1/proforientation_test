@@ -112,12 +112,11 @@ router.post("/login", async (req, res) => {
       const token = jwt.sign({ user_id: user.id, username }, "secretValue", {
         expiresIn: "2h",
       });
-
-      // save user token
-      user.token = token;
-
-      // user
-      res.status(200).json(user);
+    
+      
+      req.body.token = token;
+      res.redirect("/user/cabinet/welcome");
+      
     }
     res.status(400).send("Invalid Credentials");
   } catch (err) {
