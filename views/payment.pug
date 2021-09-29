@@ -1,0 +1,5 @@
+doctype html
+title Stripe Payment Demo
+h3 Start your test now!
+form(action='payment' method='POST')
+  script.stripe-button(src='//checkout.stripe.com/v2/checkout.js' data-key="#{key}" data-amount='100000' data-currency='kzt' data-name='Gautam Sharma' data-description='Buy React.js Complete Course' data-locale='auto')
