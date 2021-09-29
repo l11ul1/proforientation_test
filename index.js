@@ -4,15 +4,16 @@ const mongoose = require("mongoose");
 const path = require("path");
 const bodyParser = require("body-parser");
 const e = require("express");
+const cookieParser = require("cookie-parser");
+
 
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-const users = require("./routes/users");
+const userAuth = require("./routes/userAuth");
 const questions = require("./routes/questions");
-const payment = require("./routes/payment");
 const userCabinet = require("./routes/userCabinet");
 
 const { json } = require("express");
@@ -29,10 +30,11 @@ app.listen(PORT, () => {
   console.log("Running Server On Port: " + PORT);
 });
 
-app.use("/user", users);
+app.use("/", userAuth);
 app.use("/questions", questions);
-app.use("/payment", payment);
-app.use("/user/cabinet/", userCabinet);
+app.use("/profile/", userCabinet);
+
+app.use(cookieParser());
 
 //connect pug files
 app.set("views", path.join(__dirname, "views"));

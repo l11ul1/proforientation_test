@@ -1,19 +1,16 @@
 const jwt = require("jsonwebtoken");
 
 const authenticate = (req, res, next) => {
-  const token =
-    req.body.token || req.query.token || req.headers["x-access-token"];
-    console.log(req.body);
-  if (!token) {
-    return res.status(403).send("A token is required for authentication");
-  }
   try {
-    const decoded = jwt.verify(token, "secretValue");
-    req.user = decoded;
-  } catch (err) {
-    return res.status(401).send("Invalid Token");
+    const token = req.headers.cookie.split(';')[0].replace('token=','');
+    const decode = jwt.verify(token, 'secretValue');
+
+    req.user = decode;
+    next();
+  } catch(err) {
+    res.send("auth failed");
   }
-  return next();
-};
+}
+
 
 module.exports = authenticate;

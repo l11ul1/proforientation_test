@@ -11,7 +11,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 const authenticate = require("../middleware/authenticate");
-const { route } = require("./users");
+const { userAuth } = require("./userAuth");
 
 mongoose
   .connect(url, connectionOptions)
@@ -23,7 +23,6 @@ mongoose
   });
 
 router.get("/welcome", authenticate, (req, res) => {
-  // const name = req.params.username;
   res.render("userCabinet");
 });
 

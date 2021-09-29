@@ -4,6 +4,7 @@ const url =
   "mongodb+srv://admin:3989302As@cluster0.o2m8r.mongodb.net/prof_orientation_test_db?retryWrites=true&w=majority";
 const connectionOptions = { useNewUrlParser: true, useUnifiedTopology: true };
 const router = express.Router();
+const authenticate = require("../middleware/authenticate");
 
 //will define questions category 0-4 as there is 5 categories
 let currentCategoryIndex = 0;
@@ -68,7 +69,7 @@ const QuestionScheema = new Schema({
 const Question = mongoose.model("questions", QuestionScheema);
 
 //GET mapping get all questions
-router.get("/", (req, res) => {
+router.get("/",authenticate, (req, res) => {
   Question.find()
     .exec()
     .then((questions) => {
@@ -107,7 +108,7 @@ router.get("/", (req, res) => {
 });
 
 //when you press submit answer it will trigger this method
-router.post("/questions/nextQuestion", (req, res) => {
+router.post("/nextQuestion", (req, res) => {
   let currentQuestionIndex = questionsByCategory[currentCategoryIndex].indexOf(
     currentQuestion,
     0
