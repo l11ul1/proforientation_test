@@ -68,6 +68,32 @@ router.get("/login", (req, res) => {
   toastr.info("tewst");
 });
 
+router.post("/login", (req, res) => {
+  var username = req.body.name;
+  var password = req.body.password;
+
+  User.findOne({
+    email: username,
+  }).then((user) => {
+    if (user) {
+      bcrypt.compare(password, user.password, function (err, result) {
+        if (err) {
+          //TODO err hand
+        }
+        if (result) {
+          let token = jwt.sign({ name: user.name }, "verySecretValue", {
+            expiresIn: "1h",
+          });
+        } else {
+          //TODO err hand (Password doesn't match)
+        }
+      });
+    } else {
+      //TODO err hand (No user found)
+    }
+  });
+});
+
 router.post("/signup", (req, res) => {
   User.findOne({
     email: req.body.email,
