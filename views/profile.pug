@@ -5,7 +5,7 @@ block content
         div.row.d-flex.justify-content-center.align-items-center.h-100
             div.top-stripe.main-color
             .title.col-12.mt-4
-                p.h1.text-center.mt-4.font-weight-bold Welcome back, #{}
+                p.h1.text-center.mt-4.font-weight-bold Welcome back, 
 
             form(action='profile/payment' method='POST').mt-4.mx-1.mx-md-4
               script.stripe-button(src='//checkout.stripe.com/v2/checkout.js' data-key=`${key}` data-amount='100000' data-currency='kzt' data-name='Gautam Sharma' data-description='Buy React.js Complete Course' data-locale='auto')

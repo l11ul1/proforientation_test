@@ -56,12 +56,18 @@ router.get("/logout", (req, res) => {
   res.redirect('/')
 });
 
-router.get("/login", (req, res) => {
-  res.render("login");
+router.get("/login", authenticate, (req, res) => {
+  if(req.headers.cookie) {
+    res.redirect("/profile");
+  } else {
+    res.render("login");
+  }
 });
 
+
 router.get("/profile/", authenticate, (req, res)=>{
-  return res.render("payment", {key: pubKey});
+  console.log(req.body);
+  return res.render("profile", {key: pubKey});
 });
 
 router.post("/profile/", authenticate, (req, res) => {
@@ -94,9 +100,7 @@ stripe.customers.create({
 
 router.post("/login", (req, res) => {
   var username = req.body.username;
-  var password = req.body.password;
-
-  
+  var password = req.body.password;  
 
   User.findOne({
     email: username,
@@ -108,7 +112,7 @@ router.post("/login", (req, res) => {
         }
         if (result) {
           const token = jwt.sign({ user_id: user.name }, "secretValue", {
-            expiresIn: "1h",
+            expiresIn: "10s",
           });
           res.setHeader("Set-Cookie", `token=${token}`);
           res.redirect("/profile");

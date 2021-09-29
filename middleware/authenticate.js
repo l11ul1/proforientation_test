@@ -8,7 +8,7 @@ const authenticate = (req, res, next) => {
     req.user = decode;
     next();
   } catch(err) {
-    res.send("auth failed");
+    res.render("login");
   }
 }
 
