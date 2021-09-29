@@ -9,6 +9,7 @@ const connectionOptions = {
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const authenticate = require("../middleware/authenticate");
 const toastr = require("toastr");
 
 toastr.options = {
@@ -65,42 +66,72 @@ router.get("/signup", (req, res) => {
 
 router.get("/login", (req, res) => {
   res.render("login");
-  toastr.info("tewst");
 });
 
-router.post("/login", (req, res) => {
-  var username = req.body.name;
-  var password = req.body.password;
+router.post("/login", async (req, res) => {
+  // var username = req.body.username;
+  // var password = req.body.password;
 
-  User.findOne({
-    email: username,
-  }).then((user) => {
-    if (user) {
-      bcrypt.compare(password, user.password, function (err, result) {
-        if (err) {
-          //TODO err hand
-        }
-        if (result) {
-          let token = jwt.sign({ name: user.name }, "verySecretValue", {
-            expiresIn: "1h",
-          });
-        } else {
-          //TODO err hand (Password doesn't match)
-        }
-      });
-    } else {
-      //TODO err hand (No user found)
+  // User.findOne({
+  //   email: username,
+  // }).then((user) => {
+  //   if (user) {
+  //     bcrypt.compare(password, user.password, function (err, result) {
+  //       if (err) {
+  //         console.log("//TODO err hand");
+  //       }
+  //       if (result) {
+  //         const token = jwt.sign({ user_id: user.name }, "secretValue", {
+  //           expiresIn: "3h",
+  //         });
+  //         user.token = token;
+  //         res.redirect("/");
+  //         console.log("Successfully logged in");
+  //       } else {
+  //         console.log("//TODO err hand Password doesnt match");
+  //       }
+  //     });
+  //   } else {
+  //     console.log("//TODO err hand No user found");
+  //   }
+  // });
+
+  try {
+    // Get user input
+    var username = req.body.username;
+    var password = req.body.password;
+    // Validate user input
+    if (!(username && password)) {
+      res.status(400).send("All input is required");
     }
-  });
+    // Validate if user exist in our database
+    const user = await User.findOne({ email: username });
+
+    if (user && (await bcrypt.compare(password, user.password))) {
+      // Create token
+      const token = jwt.sign({ user_id: user.id, username }, "secretValue", {
+        expiresIn: "2h",
+      });
+
+      // save user token
+      user.token = token;
+
+      // user
+      res.status(200).json(user);
+    }
+    res.status(400).send("Invalid Credentials");
+  } catch (err) {
+    console.log(err);
+  }
 });
 
-router.post("/signup", (req, res) => {
+router.post("/signup", async (req, res) => {
   User.findOne({
     email: req.body.email,
   }).then((user) => {
     if (user) {
       //TODO err hand
-      toastr.warning("Email already exists");
+      console.log("email exists");
     } else {
       let user = new User({
         name: req.body.name,
@@ -109,7 +140,7 @@ router.post("/signup", (req, res) => {
       });
 
       bcrypt.genSalt(10, (err, salt) => {
-        bcrypt.hash(newUser.password, salt, (err, hash) => {
+        bcrypt.hash(user.password, salt, (err, hash) => {
           if (err) {
             //TODO err
           }
@@ -119,7 +150,6 @@ router.post("/signup", (req, res) => {
       });
       console.log("Sucessfuly registered");
       res.render("login");
-      toastr.success("You have created an account.");
     }
   });
 });

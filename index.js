@@ -12,6 +12,8 @@ app.use(bodyParser.json());
 
 const users = require("./routes/users");
 const questions = require("./routes/questions");
+const userCabinet = require("./routes/userCabinet");
+
 const { json } = require("express");
 const toastr = require("toastr");
 
@@ -28,6 +30,7 @@ app.listen(PORT, () => {
 
 app.use("/user", users);
 app.use("/questions", questions);
+app.use("/user/cabinet/", userCabinet);
 
 //connect pug files
 app.set("views", path.join(__dirname, "views"));
