@@ -83,7 +83,9 @@ router.post("/login", (req, res) => {
         if (result) {
           let token = jwt.sign({ name: user.name }, "verySecretValue", {
             expiresIn: "1h",
+            
           });
+          console.log("123");
         } else {
           //TODO err hand (Password doesn't match)
         }
