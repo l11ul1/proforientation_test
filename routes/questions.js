@@ -6,6 +6,8 @@ const connectionOptions = { useNewUrlParser: true, useUnifiedTopology: true };
 const router = express.Router();
 const authenticate = require("../middleware/authenticate");
 
+let userId = ""; 
+
 //will define questions category 0-4 as there is 5 categories
 let currentCategoryIndex = 0;
 //represents current question to be displayed
@@ -65,11 +67,64 @@ const QuestionScheema = new Schema({
     right_answer_index: Number,
 });
 
+const ResultScheema = new Schema({
+  user_id: String,
+  results: Object,
+});
+
+
 //create a question model
 const Question = mongoose.model("questions", QuestionScheema);
 
+const Result = mongoose.model("results", ResultScheema);
+
 //GET mapping get all questions
 router.get("/", authenticate, (req, res) => {
+  session=req.session;
+    //will define questions category 0-4 as there is 5 categories
+  if(!session.paidToken) {
+    res.redirect("/profile");
+  }
+
+  currentCategoryIndex = 0;
+
+  currentQuestion = {};
+  strikeAnswersCount = 0;
+  strikeOfWrongAnswersCount = 0;
+
+  rightAnswersFromA = 0;
+  rightAnswersFromB = 0;
+  rightAnswersFromC = 0;
+  rightAnswersFromD = 0;
+  rightAnswersFromE = 0;
+
+  skippedAnswersFromA = 0;
+  skippedAnswersFromB = 0;
+  skippedAnswersFromC = 0;
+  skippedAnswersFromD = 0;
+  skippedAnswersFromE = 0;
+
+
+  lastIndexFromA = 0;
+  lastIndexFromB = 0;
+  lastIndexFromC = 0;
+  lastIndexFromD = 0;
+  lastIndexFromE = 0;
+
+
+  questionsFromJson = [];
+
+  questionsByCategory = [];
+
+  catA = [];
+  catB = [];
+  catC = [];
+  catD = [];
+  catE = [];
+
+
+  userId = req.user.user_id;
+  //console.log(userId)
     Question.find()
         .exec()
         .then((questions) => {
@@ -108,7 +163,7 @@ router.get("/", authenticate, (req, res) => {
 });
 
 //when you press submit answer it will trigger this method
-router.post("/nextQuestion", (req, res) => {
+router.post("/nextQuestion", authenticate, (req, res) => {
     let currentQuestionIndex = questionsByCategory[currentCategoryIndex].indexOf(
         currentQuestion,
         0
@@ -134,6 +189,25 @@ router.post("/nextQuestion", (req, res) => {
             currentQuestionIndex >
             questionsByCategory[currentCategoryIndex].length - 1
         ) {
+            // let resultsArr = []; 
+            // resultsArr.push(((rightAnswersFromA / questionsByCategory[currentCategoryIndex].length) * 100).toString());
+            // resultsArr.push(((rightAnswersFromB / questionsByCategory[currentCategoryIndex].length) * 100).toString());
+            // resultsArr.push(((rightAnswersFromC / questionsByCategory[currentCategoryIndex].length) * 100).toString());
+            // resultsArr.push(((rightAnswersFromD / questionsByCategory[currentCategoryIndex].length) * 100).toString());
+            // resultsArr.push(((rightAnswersFromE / questionsByCategory[currentCategoryIndex].length) * 100).toString());
+            const result = new Result({
+                user_id: userId,
+                results: {
+                  catA: ((rightAnswersFromA / questionsByCategory[currentCategoryIndex].length) * 100),
+                  catB: ((rightAnswersFromB / questionsByCategory[currentCategoryIndex].length) * 100),
+                  catC: ((rightAnswersFromC / questionsByCategory[currentCategoryIndex].length) * 100),
+                  catD: ((rightAnswersFromD / questionsByCategory[currentCategoryIndex].length) * 100),
+                  catE: ((rightAnswersFromE / questionsByCategory[currentCategoryIndex].length) * 100),
+                }
+            });
+            
+            result.save();
+            req.session.destroy();
             res.render("finish", {
                 rightA:
                     (rightAnswersFromA /
@@ -176,6 +250,19 @@ router.post("/nextQuestion", (req, res) => {
             currentQuestionIndex ===
             questionsByCategory[currentCategoryIndex].length - 1
         ) {
+              const result = new Result({
+                user_id: userId,
+                results: {
+                  catA: ((rightAnswersFromA / questionsByCategory[currentCategoryIndex].length) * 100),
+                  catB: ((rightAnswersFromB / questionsByCategory[currentCategoryIndex].length) * 100),
+                  catC: ((rightAnswersFromC / questionsByCategory[currentCategoryIndex].length) * 100),
+                  catD: ((rightAnswersFromD / questionsByCategory[currentCategoryIndex].length) * 100),
+                  catE: ((rightAnswersFromE / questionsByCategory[currentCategoryIndex].length) * 100),
+                }
+            });
+
+            result.save();
+            req.session.destroy();
             res.render("finish", {
                 rightA:
                     (rightAnswersFromA /
@@ -237,6 +324,19 @@ function switchCategory(currentQ, currentQI) {
         questionsByCategory[currentCategoryIndex][0].question_category;
 
     if (currentQI > questionsByCategory[currentCategoryIndex].length - 1) {
+      const result = new Result({
+        user_id: userId,
+        results: {
+          catA: ((rightAnswersFromA / questionsByCategory[currentCategoryIndex].length) * 100),
+          catB: ((rightAnswersFromB / questionsByCategory[currentCategoryIndex].length) * 100),
+          catC: ((rightAnswersFromC / questionsByCategory[currentCategoryIndex].length) * 100),
+          catD: ((rightAnswersFromD / questionsByCategory[currentCategoryIndex].length) * 100),
+          catE: ((rightAnswersFromE / questionsByCategory[currentCategoryIndex].length) * 100),
+        }
+    });
+
+        result.save();
+        req.session.destroy();
         res.render("finish", {
             rightA:
                 (rightAnswersFromA /

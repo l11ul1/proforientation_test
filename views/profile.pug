@@ -4,8 +4,113 @@ block content
     .container.container.bg-white.mt-4.shadow
         div.row.d-flex.justify-content-center.align-items-center.h-100
             div.top-stripe.main-color
-            .title.col-12.mt-4
-                p.h1.text-center.mt-4.font-weight-bold Welcome back, 
+            .title.col-12.my-3
+                p.h2.text-center.mt-4.font-weight-bold.toCapital Welcome back — #{name}
 
-            form(action='profile/payment' method='POST').mt-4.mx-1.mx-md-4
-              script.stripe-button(src='//checkout.stripe.com/v2/checkout.js' data-key=`${key}` data-amount='100000' data-currency='kzt' data-name='Gautam Sharma' data-description='Buy React.js Complete Course' data-locale='auto')
+            
+    .container.container.bg-white.mt-4.secondary-shadow
+        if (results != 0) 
+            div.row.d-flex.justify-content-center.align-items-center.h-100
+                div.side-stripe.bg-primary
+                .title.col-12.mt-2
+                    p.h3.text-center.mt-2.font-weight-bold.toCapital Your last test result :
+            div.row.d-flex.justify-content-center.align-items-center.m-2
+                .col-md-12.mb-3
+                    .progress.skill-bar
+                        .progress-bar(role='progressbar' aria-valuenow=`${results.catA}` aria-valuemin='15' aria-valuemax='100').bg-warning
+                            .skill
+                                i.fa.fa-star
+                                | Category A: 
+                                i.val #{" "+results.catA} 
+                    .progress.skill-bar
+                        .progress-bar(role='progressbar' aria-valuenow=`${results.catB}` aria-valuemin='15' aria-valuemax='100').bg-warning
+                            .skill
+                                i.fa.fa-star
+                                |  Category B:
+                                i.val #{" "+results.catB} 
+                    .progress.skill-bar
+                        .progress-bar(role='progressbar'  aria-valuenow=`${results.catC}` aria-valuemin='15' aria-valuemax='100').bg-warning
+                            .skill
+                                i.fa.fa-star
+                                |  Category C: 
+                                i.val #{results.catC}
+                    .progress.skill-bar
+                        .progress-bar(role='progressbar'  aria-valuenow=`${results.catD}` aria-valuemin='15' aria-valuemax='100').bg-warning
+                            .skill
+                                i.fa.fa-star
+                                |  Category D: 
+                                i.val #{results.catD} 
+                    .progress.skill-bar
+                        .progress-bar(role='progressbar'  aria-valuenow=`${results.catE}` aria-valuemin='15' aria-valuemax='100').bg-warning 
+                                .skill
+                                    i.fa.fa-star
+                                    |  Category E:  
+                                    i.val.left #{results.catE}
+        else
+            div.row.d-flex.justify-content-center.align-items-center.h-100
+                div.side-stripe.bg-primary
+                .title.col-12.mt-2
+                    p.h3.text-center.mt-2.font-weight-bold.toCapital Information about test
+            div.row.d-flex.justify-content-center.align-items-center.m-2
+                .row.my-4
+                    .col-4
+                        #list-tab.list-group(role='tablist')
+                            a#list-home-list.list-group-item.list-group-item-action.active(data-toggle='list' href='#list-home' role='tab' aria-controls='home') Register
+                            a#list-profile-list.list-group-item.list-group-item-action(data-toggle='list' href='#list-profile' role='tab' aria-controls='profile') Login
+                            a#list-messages-list.list-group-item.list-group-item-action(data-toggle='list' href='#list-messages' role='tab' aria-controls='messages') Pay
+                            a#list-settings-list.list-group-item.list-group-item-action(data-toggle='list' href='#list-settings' role='tab' aria-controls='settings') Testify yourself
+                    .col-8
+                        #nav-tabContent.tab-content
+                            #list-home.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='list-home-list') Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad molestiae sunt consectetur iste fuga, laboriosam consequatur rem praesentium, minima facilis sit, libero ex. Atque quas vitae iusto molestiae magni fuga?
+                            #list-profile.tab-pane.fade(role='tabpanel' aria-labelledby='list-profile-list') Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ratione quasi et, voluptatibus eos iste velit sunt culpa laudantium vero repellendus hic cumque quibusdam veniam sed eligendi repudiandae non in.
+                            #list-messages.tab-pane.fade(role='tabpanel' aria-labelledby='list-messages-list') Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident ab debitis beatae, doloremque sed enim molestias dolorum hic eveniet assumenda et voluptatem recusandae qui, nostrum blanditiis modi, odio placeat esse.
+                            #list-settings.tab-pane.fade(role='tabpanel' aria-labelledby='list-settings-list') Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem cupiditate iure ea nisi aut ab, fugit explicabo illo eligendi quos veniam esse aspernatur nostrum? Sit molestias eius architecto asperiores dolore?
+
+                    //- ul.list-group.list-group-flush
+                    //-     li.list-group-item.align-center Register
+                    //-     li.list-group-item Login
+                    //-     li.list-group-item Pay 1000KZT
+                    //-     li.list-group-item Take a test
+                    //-     li.list-group-item See results
+    
+
+
+
+
+
+
+    .container.bg-white.mt-4.secondary-shadow.px-0
+        div.row.d-flex.justify-content-center.align-items-center.h-100
+            .col-12.ml-1
+                img(src="https://hatrabbits.com/wp-content/uploads/2018/10/risky-assumptions.jpg" alt="placeholder 960").img-fluid.full-img-div.w-100.blur
+                .full-text-div
+                    if (results == 0) 
+                        h3.mb-3.toCapital Want to take a test?
+                    else 
+                        h3.mb-3.toCapital Take test again?
+                    form(action="/profile/payment" method='POST')
+                        script.stripe-button(src='//checkout.stripe.com/v2/checkout.js' data-key=`${key}` data-amount='100000' data-currency='kzt' data-name='Vladislav Mun' data-description='Welcome to our secret shop' data-locale='auto')
+                        script.
+                            document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
+                        input(type="submit" value="Pay with card").btn.main-color
+          
+
+
+            div.side-stripe.bg-primary
+            
+    script.
+        $(document).ready(function() {
+        $('.progress .progress-bar').css("width",
+        function() {
+        return $(this).attr("aria-valuenow") + "%";
+        }
+        )
+        });
+
+
+
+      
+
+
+        
+        

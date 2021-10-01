@@ -12,10 +12,12 @@ const jwt = require("jsonwebtoken");
 const authenticate = require("../middleware/authenticate");
 const { json } = require("body-parser");
 
+
 const pubKey = "pk_test_51JesNWBUY03f3NHYEzl45zGZ4i1cURY1SFYTFLEgSdGisQJMlGoua5MURdqypE7rPMYWA4XXYAakUdoYtCsdOZTX00s03q4I6b"; 
 const secretKey = "sk_test_51JesNWBUY03f3NHYCaBX5qHwtSXKmHbcB2BkyTFFMNfs9m3qqRQzCzNMryIq6PulNvGMzw8eofXonurJ8Dpj3OgQ00zDXSAHom";
 
-const stripe = require('stripe')(secretKey)
+const stripe = require('stripe')(secretKey);
+
 
 mongoose
   .connect(url, connectionOptions)
@@ -45,7 +47,13 @@ const userSchema = new Schema(
   }
 );
 
+const ResultScheema = new Schema({
+  user_id: String,
+  results: Object,
+});
+
 const User = mongoose.model("user", userSchema);
+const Result = mongoose.model("result", ResultScheema);
 
 router.get("/signup", (req, res) => {
   res.render("signup");
@@ -53,50 +61,25 @@ router.get("/signup", (req, res) => {
 
 router.get("/logout", (req, res) => {
   res.clearCookie('token');
-  res.redirect('/')
+  req.session.destroy();
+  res.redirect('/');
 });
 
-router.get("/login", authenticate, (req, res) => {
-  if(req.headers.cookie) {
-    res.redirect("/profile");
-  } else {
-    res.render("login");
+router.get("/login", (req, res) => {
+
+  const token = req.cookies.token;
+  console.log(token);
+  if(token){
+    console.log("tokoookeeen: " + token);
+    const decode = jwt.verify(token, 'secretValue');
+    if(decode) {
+      res.redirect('/profile');
+    } else {
+      res.render('login');
+    }
   }
-});
-
-
-router.get("/profile/", authenticate, (req, res)=>{
-  console.log(req.body);
-  return res.render("profile", {key: pubKey});
-});
-
-router.post("/profile/", authenticate, (req, res) => {
-stripe.customers.create({
-  email: req.body.stripeEmail,
-  source: req.body.stripeToken,
-  name: 'Admin',
-  address: {
-    line1: 'address',
-    postal_code: 'pc',
-    city: 'city',
-    state: 'state',
-    country: 'country'
-  }
-}).then((customer) => {
-    return stripe.charges.create({
-      amount: 100000,
-      description: 'description',
-      currency: 'KZT',
-      customer: customer.id
-    })
-}).then((charge) => {
-  console.log("Success charged");
-  console.log(charge);
-  res.send(charge)
-}).catch((err) => {
-  res.send(err);
-})
-})
+  res.render('login');
+  });
 
 router.post("/login", (req, res) => {
   var username = req.body.username;
@@ -111,12 +94,13 @@ router.post("/login", (req, res) => {
           console.log("//TODO err hand");
         }
         if (result) {
-          const token = jwt.sign({ user_id: user.name }, "secretValue", {
-            expiresIn: "10s",
+          const token = jwt.sign({ user_id: user._id, name: user.name, }, "secretValue", {
+            expiresIn: "1h",
           });
-          res.setHeader("Set-Cookie", `token=${token}`);
+          session = req.session
+          session.loggedIn = "true";
+          res.cookie('token', token);
           res.redirect("/profile");
-          
           console.log("Successfully logged in");
         } else {
           console.log("//TODO err hand Password doesnt match");
@@ -126,32 +110,51 @@ router.post("/login", (req, res) => {
       console.log("//TODO err hand No user found");
     }
   });
-
-  // try {
-  //   // Get user input
-  //   var username = req.body.username;
-  //   var password = req.body.password;
-  //   // Validate user input
-  //   if (!(username && password)) {
-  //     res.status(400).send("All input is required");
-  //   }
-  //   // Validate if user exist in our database
-  //   const user = await User.findOne({ email: username });
-
-  //   if (user && (await bcrypt.compare(password, user.password))) {
-  //     // Create token
-  //     const token = jwt.sign({ user_id: user.id, username }, "secretValue", {
-  //       expiresIn: "2h",
-  //     });
-    
-  //     //res.redirect("/user/cabinet/welcome");
-  //     res.send(token);
-  //   }
-  //   res.status(400).send("Invalid Credentials");
-  // } catch (err) {
-  //   console.log(err);
-  // }
 });
+
+
+router.get("/profile", authenticate, (req, res)=>{
+  console.log(req.user);
+  let lastResult;
+  let query = Result.find({user_id: req.user.user_id});
+
+  query.exec().then((results) => {
+    lastResult = results[results.length - 1].results;
+    res.render("profile", {results: lastResult, key: pubKey, name: req.user.name});
+  }).catch(function (err) {
+    lastResult = 0;
+    res.render("profile", {results: lastResult, key: pubKey, name: req.user.name});
+  });
+});
+
+
+
+router.post("/profile/payment", authenticate, (req, res) => {
+
+stripe.customers.create({
+  email: req.body.stripeEmail,
+  source: req.body.stripeToken,
+  
+}).then((customer) => {
+    return stripe.charges.create({
+      amount: 100000,
+      description: 'description',
+      currency: 'KZT',
+      customer: customer.id
+    })
+}).then((charge) => {
+  console.log("Success charged");
+  session=req.session;
+  session.paidToken = charge.id;
+  console.log(session.paidToken);
+  res.redirect('/questions');
+
+}).catch((err) => {
+  res.send(err);
+})
+});
+
+
 
 router.post("/signup", (req, res) => {
   User.findOne({
@@ -177,7 +180,7 @@ router.post("/signup", (req, res) => {
         });
       });
       console.log("Sucessfuly registered");
-      res.redirect('/login');
+      res.redirect('/profile');
     }
   });
 });

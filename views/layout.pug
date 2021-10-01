@@ -7,34 +7,37 @@ html
         link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
         link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css")
         script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js')
+        script(src='https://code.jquery.com/jquery-3.6.0.min.js')
         style
             include style.css
     body.bg-custom
 
         nav.navbar.navbar-expand-lg.navbar-light.bg-light
-            a.navbar-brand(href='/questions') Knowledge Base
+            a.navbar-brand(href='/') Knowledge Base
             button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNavAltMarkup' aria-controls='navbarNavAltMarkup' aria-expanded='false' aria-label='Toggle navigation')
                 span.navbar-toggler-icon
             #navbarNavAltMarkup.collapse.navbar-collapse
                 .navbar-nav
-                    a.nav-item.nav-link.active(href='/')
-                        | Home 
-                        span.sr-only (current)
-                    a.nav-item.nav-link(href='#') Features
-                    a.nav-item.nav-link(href='#') Pricing
             .navbar-nav
-                a(href='/login').main-color-inversed.btn.bg-light.mx-2
-                    i.fa.fa-sign-in.fa-2x
-                a(href='/signup').main-color.btn.align-self-center
-                    | Register
-                 
+                a(href='/profile').main-color-inversed.btn.bg-light.mx-2
+                    if (!loggedIn)
+                        i.fa.fa-sign-in.fa-2x
+                    else 
+                        i.fa.fa-home.fa-2x
+                if (!loggedIn)
+                    a(href='/signup').main-color.btn.align-self-center.m-1
+                        | Register
+                else
+                    a(href='/logout').main-color.btn.align-self-center.m-1
+                        | Logout 
         block content
         br
         hr 
     footer 
         p Copyright &copy; 2017
-    script(src='https://code.jquery.com/jquery-3.6.0.min.js')
+    
     script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js' integrity='sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo' crossorigin='anonymous')
     script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js' integrity='sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6' crossorigin='anonymous')
     script(src='https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js') 
     script(src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js')
+    

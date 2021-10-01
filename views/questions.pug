@@ -2,19 +2,18 @@ extends layout
 
 block content
     .container.bg-white.mt-4.shadow
-
         div.top-stripe.main-color
         #question-body.col-12.mt-4
             h1.text-center.mt-4 #{question.question_body}
 
-        #question-answers.mt-4
+        #question-answers.my-4
             form(method="POST", action='/questions/nextQuestion').w-100
                 each answer, i in question.question_answers
                     .option.form-check.my-2.border-bottom.rounded-bottom
                         input(type='radio', name='answer', value=answer, id=i).form-check-input
                         label(for=i).option-name.px-2.form-check-label 
                             h5.font-weight-light #{answer}
-                input(type='submit').my-3.main-color.btn.float-right
+                input(type='submit').my-3.main-color.btn.right
 
     
     

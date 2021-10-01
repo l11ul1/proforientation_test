@@ -23,6 +23,7 @@ mongoose
   });
 
 router.get("/welcome", authenticate, (req, res) => {
+  console.log(" sukakakkakak " + req.user)
   res.render("userCabinet");
 });
 

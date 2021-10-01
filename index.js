@@ -4,8 +4,6 @@ const mongoose = require("mongoose");
 const path = require("path");
 const bodyParser = require("body-parser");
 const e = require("express");
-const cookieParser = require("cookie-parser");
-
 
 const app = express();
 
@@ -17,7 +15,8 @@ const questions = require("./routes/questions");
 const userCabinet = require("./routes/userCabinet");
 
 const { json } = require("express");
-const toastr = require("toastr");
+const cookieParser = require("cookie-parser");
+const session = require("express-session");
 
 const PORT = 8888;
 const url =
@@ -30,11 +29,23 @@ app.listen(PORT, () => {
   console.log("Running Server On Port: " + PORT);
 });
 
+
+// and now You can use 2.x express dynamicHelpers
+require('express-dynamic-helpers-patch')(app);
+
+app.dynamicHelpers({
+    loggedIn: function (req, res) {
+      return req.session.loggedIn;
+    }
+ });
+
+app.use(cookieParser());
+app.use(session({secret: 'secret', resave: false, saveUninitialized: true}));
+
 app.use("/", userAuth);
 app.use("/questions", questions);
 app.use("/profile/", userCabinet);
 
-app.use(cookieParser());
 
 //connect pug files
 app.set("views", path.join(__dirname, "views"));
@@ -43,3 +54,5 @@ app.set("view engine", "pug");
 app.get("/", (req, res) => {
   res.render("index");
 });
+
+
