@@ -1,8 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
 
 body {
-   font-family: 'Roboto', sans-serif;
+   font-family: "Inter", Sans-serif;
+   font-size: 20px;
+   font-weight: 400;
+   color: white;
+   height: 100vh;
 }
 
 #question-answers {
@@ -12,6 +16,48 @@ body {
 .option {
    vertical-align: middle;
 }
+
+.title {
+   font-size: 51px;
+   font-weight: 900;
+   text-shadow: 0px 0px 15px rgb(33 33 75 / 90%);
+   color: white;
+}
+
+.nav-p {
+   font-size: 16px;
+   font-weight: 600;
+   text-shadow: 0px 0px 10px rgb(0 0 0 / 30%);
+   margin: 12px 24px;
+}
+
+.social-icon {
+   font-size: 25px;
+   margin: 0 2.5px;
+   padding: 0.5em;
+   cursor: pointer;
+}
+
+.contacts {
+   font-size: 15px;
+   font-weight: 400;
+   line-height: 0.1em;
+   margin: 0 0 20px;
+}
+
+.heading-title {
+   font-size: 15px;
+   font-weight: 400;
+}
+
+.custom-navbar {
+   background-color: #314D87;
+   border-bottom: solid 1px black;
+}
+
+footer {
+   background-color: rgb(27, 36, 76) ;
+}
  
 
 .option-name {
@@ -19,7 +65,7 @@ body {
 }
 
 .bg-custom {
-   background-color: #ede7f6;
+   background-color: #3D4E84;
 }
 
 .shadow {
@@ -67,13 +113,13 @@ body {
 }
 
 .main-color {
-   background-color: rgb(103, 58, 183);
-    color: rgba(255, 255, 255, 1);
+   background-color: #0366d6;
+    color: white;
 }
 
 .main-color-inversed {
-   background-color: rgba(255, 255, 255, 1);
-    color: rgb(103, 58, 183);
+   background-color: #314D87;
+    color: white;
 }
 
 .progress {
@@ -144,3 +190,5 @@ body {
  .toCapital {
     text-transform: uppercase;
  }
+
+ 

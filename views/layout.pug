@@ -11,30 +11,45 @@ html
         style
             include style.css
     body.bg-custom
-
-        nav.navbar.navbar-expand-lg.navbar-light.bg-light
-            a.navbar-brand(href='/') Knowledge Base
-            button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNavAltMarkup' aria-controls='navbarNavAltMarkup' aria-expanded='false' aria-label='Toggle navigation')
-                span.navbar-toggler-icon
-            #navbarNavAltMarkup.collapse.navbar-collapse
-                .navbar-nav
-            .navbar-nav
-                a(href='/profile').main-color-inversed.btn.bg-light.mx-2
+        nav.navbar.navbar-expand-lg.custom-navbar.justify-content-md-between.text-center.justify-content-center
+            a.navbar-brand(href='/').title.pl-5  Bal Bilim
+            navbar.d-flex.align-items-center.flex-wrap.p-0.w-sm-100
+                div.col-md-3.col-12
+                    p.nav-p Главная
+                div.col-md-3.col-12
+                    p.nav-p Пройти олимпиаду
+                div.col-md-3.col-12
+                    a(href='/profile').btn.bg-light.mx-2.nav-p
+                        if (!loggedIn)
+                            i.fa.fa-sign-in.fa-2x
+                        else 
+                            i.fa.fa-home.fa-2x        
+                div.col-md-3.col-12   
                     if (!loggedIn)
-                        i.fa.fa-sign-in.fa-2x
-                    else 
-                        i.fa.fa-home.fa-2x
-                if (!loggedIn)
-                    a(href='/signup').main-color.btn.align-self-center.m-1
-                        | Register
-                else
-                    a(href='/logout').main-color.btn.align-self-center.m-1
-                        | Logout 
+                        a(href='/signup').main-color.btn.align-self-center.m-1.nav-p
+                            | Регистрация
+                    else
+                        a(href='/logout').main-color.btn.align-self-center.m-1.nav-p
+                            | Выход 
         block content
         br
         hr 
-    footer 
-        p Copyright &copy; 2017
+    footer
+        div.row.d-flex.justify-content-center.align-items-center.m-2.p-4
+            row.col-4.text-center
+                row
+                    h1.title Bal Bilim
+                    p.heading-title Когда знание становится преимуществом 
+            row.col-4.d-flex.justify-content-center
+                i.fa.fa-facebook.social-icon
+                i.fa.fa-instagram.social-icon
+                i.fa.fa-envelope.social-icon
+            row.col-4.text-right
+                p.contacts 050016, г. Алматы. Бостандыкский район 
+                p.contacts Индустриальная, 18а
+                p.contacts Тел: +7 (771) 517-01-22
+                p.contacts balbilim@mail.ru
+        
     
     script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js' integrity='sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo' crossorigin='anonymous')
     script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js' integrity='sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6' crossorigin='anonymous')
