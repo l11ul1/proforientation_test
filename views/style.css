@@ -20,15 +20,60 @@ body {
 .title {
    font-size: 51px;
    font-weight: 900;
-   text-shadow: 0px 0px 15px rgb(33 33 75 / 90%);
+   text-shadow: 0px 0px 10px rgb(0 0 0 / 30%);
    color: white;
 }
 
 .nav-p {
    font-size: 16px;
    font-weight: 600;
-   text-shadow: 0px 0px 10px rgb(0 0 0 / 30%);
-   margin: 12px 24px;
+   color: white;
+}
+
+.background-overlay{
+   position:relative;
+   display:inline-block;
+ }
+
+ .background-overlay1{
+   height: 100%;
+   width: 100%;
+   top: 0;
+   left: 0;
+   position: absolute;
+ }
+ 
+ 
+ .background-overlay1:after {
+   background-color: transparent;
+    background-image: linear-gradient(180deg, #050824C4 46%, #D67C42 100%);
+    opacity: 1;
+  }
+ 
+  .background-overlay:after {
+   content: '';
+   position: absolute;
+   left:0; top:0;
+   width:100%; height:100%;
+   display:inline-block;
+   background: -moz-linear-gradient(180deg, #050824C4 46%, #D67C42 100%); /* FF3.6+ */
+   background: -webkit-linear-gradient(180deg, #050824C4 46%, #D67C42 100%); /* Chrome10+,Safari5.1+ */
+   background: -o-linear-gradient(180deg, #050824C4 46%, #D67C42 100%); /* Opera 11.10+ */
+   background: -ms-linear-gradient(180deg, #050824C4 46%, #D67C42 100%); /* IE10+ */
+   background: linear-gradient(180deg, #050824C4 46%, #D67C42 100%); /* W3C */
+   opacity: 1;
+ }
+
+
+.text-overlay {
+   position: absolute;
+   left:0; top: 0;
+   width:100%; height:100%;
+}
+
+.nav-p:hover {
+   color: #4586D5;
+   background-color: white;
 }
 
 .social-icon {
@@ -36,6 +81,10 @@ body {
    margin: 0 2.5px;
    padding: 0.5em;
    cursor: pointer;
+}
+
+.signBtn {
+   background-color: #4586D5CC;
 }
 
 .contacts {
@@ -52,8 +101,15 @@ body {
 
 .custom-navbar {
    background-color: #314D87;
-   border-bottom: solid 1px black;
 }
+
+.background-image {
+   background-image: url('https://digital.olzhassuleimenov.site/wp-content/uploads/2021/10/pexels-pixabay-414974.jpg');
+   background-size: cover;
+   height: 100%;
+}
+
+
 
 footer {
    background-color: rgb(27, 36, 76) ;

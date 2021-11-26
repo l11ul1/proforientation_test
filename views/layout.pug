@@ -11,26 +11,28 @@ html
         style
             include style.css
     body.bg-custom
-        nav.navbar.navbar-expand-lg.custom-navbar.justify-content-md-between.text-center.justify-content-center
-            a.navbar-brand(href='/').title.pl-5  Bal Bilim
-            navbar.d-flex.align-items-center.flex-wrap.p-0.w-sm-100
-                div.col-md-3.col-12
-                    p.nav-p Главная
-                div.col-md-3.col-12
-                    p.nav-p Пройти олимпиаду
-                div.col-md-3.col-12
-                    a(href='/profile').btn.bg-light.mx-2.nav-p
+        nav.navbar.navbar-expand-lg.custom-navbar.d-flex
+            navbar.row.px-5.w-100
+                div.col-12.col-md-6.d-flex.justify-content-center.justify-content-lg-between 
+                    a.navbar-brand(href='/').title.ml-5.text-center Bal Bilim
+                div.col-12.col-md-6.d-flex.align-items-center.flex-wrap.p-0.text-center
+                    div.col-md-4.col-12
+                        a(href='/').btn.nav-p.my-0.my-md-4.w-100 Главная
+                    div.col-md-4.col-12
+                        a(href='/profile').btn.nav-p.my-0.my-md-4.w-100 Пройти олимпиаду       
+                    div.col-md-4.col-12  
                         if (!loggedIn)
-                            i.fa.fa-sign-in.fa-2x
-                        else 
-                            i.fa.fa-home.fa-2x        
-                div.col-md-3.col-12   
-                    if (!loggedIn)
-                        a(href='/signup').main-color.btn.align-self-center.m-1.nav-p
-                            | Регистрация
-                    else
-                        a(href='/logout').main-color.btn.align-self-center.m-1.nav-p
-                            | Выход 
+                            a(href='/signup').signBtn.btn.nav-p.w-100.my-0.my-md-4
+                                | Логин/Вход
+                        else
+                            a(href='/logout').signBtn.btn.nav-p.w-100.my-0.my-md-4
+                                | Выход 
+                //- div.col-md-3.col-12
+                //-     a(href='/profile').btn.mx-2.nav-p
+                //-         if (!loggedIn)
+                //-             i.fa.fa-sign-in.fa-2x
+                //-         else 
+                //-             i.fa.fa-home.fa-2x 
         block content
         br
         hr 
