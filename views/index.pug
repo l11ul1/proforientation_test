@@ -1,30 +1,90 @@
 extends layout
 
 block content
-    section.container-fluid.background-overlay.p-0
-        .carousel.slide(data-ride='carousel')
-            .carousel-inner
-                .carousel-item.active
-                    div.d-flex
-                        img(src='https://digital.olzhassuleimenov.site/wp-content/uploads/2021/10/pexels-pixabay-414974.jpg')
-                .carousel-item
-                    div.d-flex
-                        img(src='https://digital.olzhassuleimenov.site/wp-content/uploads/2021/10/pexels-pixabay-267885.jpg')
-                .carousel-item
-                    div.d-flex
-                        img(src='https://digital.olzhassuleimenov.site/wp-content/uploads/2021/10/pexels-tima-miroshnichenko-7567522.jpg')
-                .carousel-item
-                    div.d-flex
-                        img(src='https://digital.olzhassuleimenov.site/wp-content/uploads/2021/10/pexels-teona-swift-6913726-scaled.jpg')
-                .carousel-item
-                    div.d-flex
-                        img(src='https://digital.olzhassuleimenov.site/wp-content/uploads/2021/10/pexels-mentatdgt-1319855.jpg')    
-        .background-overlay1
-        div.text-overlay.col  
-            div.row-4
-                p.h1.text-center.mt-4.font-weight-bold.left Найди свою специальность.
-            div.row-4
-                p Определи то, в чём ты силен: физика и математика, графдизайн, маркетинг, биология или юриспруденция
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, quos distinctio ex eveniet consequuntur sit dolores eligendi laborum numquam perferendis quod tenetur voluptatibus repellendus sunt explicabo exercitationem nesciunt nihil praesentium, error sed. Iure beatae, nobis quis accusantium itaque eius nesciunt tempora doloribus delectus assumenda quos possimus! Rerum repudiandae animi, consequatur perferendis repellendus veniam ipsam corporis totam, ducimus optio minus quia dolore cupiditate esse. Rerum neque consectetur iusto tenetur dolorum quaerat, ducimus mollitia dolores quam sit sapiente, veniam architecto illum, eum magni aliquid praesentium nostrum distinctio rem? Aut, quidem eos praesentium ducimus dolore doloribus mollitia animi deleniti optio ut suscipit doloremque. Possimus voluptates ut cum repellendus nisi qui blanditiis quas! Eos dolorem architecto sunt tempora, enim quas! Ducimus soluta quaerat repellat cum molestias quisquam similique quidem cumque laboriosam vitae esse natus unde explicabo aliquam praesentium tenetur, necessitatibus obcaecati quia ab earum. Accusantium, repellendus ipsum at sunt veritatis necessitatibus qui voluptatem harum aliquid commodi exercitationem dolor est eum earum sapiente? Eos at rerum explicabo odio debitis, doloremque quasi quos amet delectus molestiae libero, quo aperiam sequi obcaecati eaque dignissimos dolorem deserunt? Quaerat perspiciatis neque vel a sequi dolorem in ullam quidem recusandae fuga magni, ut dolore, ipsum deserunt laborum expedita corrupti nulla.
-            div.row-4
-                btn Пройти тест
+    section
+        div#wrapper.background-overlay.p-0.container-fluid
+            div.text-overlay.col.p-0
+                div.row-4.d-flex.left.w-100.pt-5
+                    h2.mt-5.section-title Найди свою специальность.
+                div.row-4.d-flex.left.w-100
+                    p.section-subtitle.section-margin.mr-0.section-margin Определи то, в чём ты силен: физика и математика, графдизайн, маркетинг, биология или юриспруденция
+                div.row-4.d-flex.left.section-margin
+                a(href='/')#testBtn.btn.section-margin Пройти тест
+
+            div#cardSection.d-flex.row.justify-content-space-evenly
+                .card-extension-advantages.col-md-3.col-12.d-flex.my-4
+                   div.row.d-flex.justify-content-center
+                        .col-12.my-3
+                            i.fa.fa-calculator.fa-5x
+                            h3.mt-4 Умная подборка вопросов
+                        .col-12
+                            hr
+                        .col-12.my-3
+                            p.cards-text Тест заточен так, чтобы найти в тебе сильные стороны и указать на то, что у тебя получается лучше всего.
+                .card-extension-advantages.col-md-3.col-12.d-flex.my-4
+                    div.row.d-flex.justify-content-center
+                        .col-12.my-3
+                            i.fas.fa-brain.fa-5x
+                            h3.mt-4 Больше, чем просто тест
+                        .col-12
+                            hr
+                        .col-12.my-3
+                            p.cards-text Как только ты пройдешь тест, ты получишь список полезного  контента о твоей специальности
+                .card-extension-advantages.col-md-3.col-12.d-flex.my-4
+                    div.row.d-flex.justify-content-center
+                        .col-12.my-3
+                            i.fas.fa-chart-line.fa-5x
+                            h3.mt-4 Точная характеристика
+                        .col-12
+                            hr
+                        .col-12.my-3
+                            p.cards-text Получи диаграмму, которая описывает твои способности по каждому из предметов
+            .carousel.slide(data-ride='carousel')
+                .carousel-inner
+                    .carousel-item.active
+                        div.d-flex
+                            img(src='https://digital.olzhassuleimenov.site/wp-content/uploads/2021/10/pexels-pixabay-414974.jpg').carousel-image
+                    .carousel-item
+                        div.d-flex
+                            img(src='https://digital.olzhassuleimenov.site/wp-content/uploads/2021/10/pexels-pixabay-267885.jpg').carousel-image
+                    .carousel-item
+                        div.d-flex
+                            img(src='https://digital.olzhassuleimenov.site/wp-content/uploads/2021/10/pexels-tima-miroshnichenko-7567522.jpg').carousel-image
+                    .carousel-item
+                        div.d-flex
+                            img(src='https://digital.olzhassuleimenov.site/wp-content/uploads/2021/10/pexels-teona-swift-6913726-scaled.jpg').carousel-image
+                    .carousel-item
+                        div.d-flex
+                            img(src='https://digital.olzhassuleimenov.site/wp-content/uploads/2021/10/pexels-mentatdgt-1319855.jpg').carousel-image    
+        
+                        
+    section#forWhomSection.d-flex.row.justify-content-space-evenly.w-100.bg-orange.mx-0
+        div.d-flex.col-12.justify-content-center.text-center
+            h2.whom-title Для кого эта олимпиада?
+        #whoSection.row.d-flex
+            .card-extension-types.d-flex.col-lg-3.col-12.card-background-overlay
+                .row-12.mt-4.d-flex.justify-content-center.pb-3
+                    h2.cards-title Интровертов
+                .row-12.d-flex.justify-content-center
+                    div.whomIcon.p-3.col-12
+                        i.fas.fa-chess
+                .row-12.d-flex.justify-content-center.p-5
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque repellat nesciunt nobis et vitae, at quidem unde earum corporis quis.
+            
+            .card-extension-types.d-flex.col-lg-3.col-12.card-main
+                .row-12.mt-4.d-flex.justify-content-center.pb-3
+                    h2.cards-title Активистов
+                .row-12.d-flex.justify-content-center
+                    div.whomIcon.p-3.col-12
+                        i.far.fa-star
+                .row-12.d-flex.justify-content-center.p-5
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque repellat nesciunt nobis et vitae, at quidem unde earum corporis quis.
+            
+            .card-extension-types.d-flex.col-lg-3.col-12.card-background-overlay
+                .row-12.mt-4.d-flex.justify-content-center.pb-3
+                    h2.cards-title Бунтарей
+                .row-12.d-flex.justify-content-center
+                    div.whomIcon.p-3.col-12
+                        i.fas.fa-glasses
+                .row-12.d-flex.justify-content-center.p-5
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque repellat nesciunt nobis et vitae, at quidem unde earum corporis quis.

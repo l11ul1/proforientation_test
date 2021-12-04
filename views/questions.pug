@@ -1,19 +1,37 @@
 extends layout
 
 block content
-    .container.bg-white.mt-4.shadow
-        div.top-stripe.main-color
-        #question-body.col-12.mt-4
-            h1.text-center.mt-4 #{question.question_body}
-
-        #question-answers.my-4
-            form(method="POST", action='/questions/nextQuestion').w-100
-                each answer, i in question.question_answers
-                    .option.form-check.my-2.border-bottom.rounded-bottom
-                        input(type='radio', name='answer', value=answer, id=i).form-check-input
-                        label(for=i).option-name.px-2.form-check-label 
-                            h5.font-weight-light #{answer}
-                input(type='submit').my-3.main-color.btn.right
-
-    
+    div#question-body-wrapper
+        #question-body-overlay
+        div.row.d-flex.justify-content-center
+            .col-12.col-md-8#questionWrapper
+                div.col
+                    div
+                        h1.text-center.py-4.questions__question #{question.question_body}
+                    #question-answers.text-secondary.p-5.bg-white.rounded
+                        form(method="POST", action='/questions/nextQuestion').w-100
+                            each answer, i in question.question_answers
+                                .option.form-check#customRadioButton.py-2.my-1.rounded-bottom
+                                    input(type='radio', name='answer', value=answer, id=i).form-check-input
+                                    label(for=i).option-name.px-2.form-check-label 
+                                        p.font-weight-light #{answer}
+                    input(type='submit' value='Следующий вопрос').my-4.main-color-inversed.btn
+            .col-12.col-md-4#digitalMarketing.d-flex.justify-content-center.align-items-center.text-center
+                #digitalMarketingOverlay
+                div.row.d-flex.justify-content-center
+                    div#headingDigitalMarketing
+                        h5 Секция
+                        h2.title.text-center 
+                            u Digital Marketing
+                    div#testProgress
+                        p Тест пройден на
+                        div.progress
+                            div.progress-bar(role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100").d-flex.w-25 25%
+                    div#timer
+                        p Время: 0:13 секунд
+                    div#sidebarButtons.align-center.d-flex.row.m-2
+                        a(href='#').col-12.btn.h2.main-color.nav-p.w-100 Остановить время
+                        a(href='#').col-12.btn.h2.main-color.nav-p.w-100  Прекратить тест
+                        a(href='#').col-12.btn.h2.main-color.nav-p.w-100  FAQ по прохождению
+                
     

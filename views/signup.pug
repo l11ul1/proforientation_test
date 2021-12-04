@@ -4,24 +4,24 @@ block content
     .container.container.bg-white.mt-4.shadow
         div.row.d-flex.justify-content-center.align-items-center.h-100
             div.top-stripe.main-color
-            .title.col-12.mt-4
-                p.h1.text-center.mt-4.font-weight-bold Sign Up
+            .col-12.mt-4
+                p.h1.text-center.mt-4.font-weight-bold.text-primary Регистрация аккаунта
             
             form(method='POST' action='/signup').mt-4.mx-1.mx-md-4
                 div.d-flex.flex-row.align-items-center.mb-4 
-                    i.fa.fa-user.fa-lg.me-3.fa-fw.pr-2
+                    i.fa.fa-user.fa-lg.me-3.fa-fw.pr-2.text-primary
                     .form-outline.flex-fill.mb-0
                         input.form-control(type='text', name='name' autofocus=true placeholder='Name')
                 div.d-flex.flex-row.align-items-center.mb-4 
-                    i.fa.fa-envelope.fa-lg.me-3.fa-fw.pr-2
+                    i.fa.fa-envelope.fa-lg.me-3.fa-fw.pr-2.text-primary
                     .form-outline.flex-fill.mb-0
                         input.form-control(type='text', name='email' placeholder='Email')
                 div.d-flex.flex-row.align-items-center.mb-4 
-                    i.fa.fa-lock.fa-lg.me-3.fa-fw.pr-2
+                    i.fa.fa-lock.fa-lg.me-3.fa-fw.pr-2.text-primary
                     .form-outline.flex-fill.mb-0
                         input.form-control(type='password', name='password' placeholder='Password')
                 div.d-flex.justify-content-center.mb-1       
-                    .form-check
+                    .form-check.text-primary
                         input.form-check-input.me-2(id='terms', type='checkbox' checked=false)
                         label.form-check-label(for='terms') 
                         | I agree all statements in 
