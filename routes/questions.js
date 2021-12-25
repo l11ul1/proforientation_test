@@ -154,7 +154,8 @@ router.get("/", authenticate, (req, res) => {
             // res.status(200).send(questionsFromJson);
             // res.render('index', { question: catE[0].question_body, answers: catE[0].question_answers });
             currentQuestion = catA[0];
-            res.render("questions", { question: questionsByCategory[0][0] });
+            // res.render("questions", { question: questionsByCategory[0][0] });
+            res.send({ question: questionsByCategory[0][0] });
         })
         .catch((err) => {
             console.log(err);
@@ -207,8 +208,9 @@ router.post("/nextQuestion", authenticate, (req, res) => {
             });
             
             result.save();
-            req.session.destroy();
-            res.render("finish", {
+            
+            //res.render("finish", {
+            res.send({
                 rightA:
                     (rightAnswersFromA /
                         questionsByCategory[currentCategoryIndex].length) *
@@ -230,15 +232,18 @@ router.post("/nextQuestion", authenticate, (req, res) => {
                         questionsByCategory[currentCategoryIndex].length) *
                     100,
             });
+            req.session.destroy();
         }
         if (strikeAnswersCount == 3) {
             switchCategory(currentQuestion, currentQuestionIndex - 1);
             currentQuestionIndex = 0;
-            res.render("questions", { question: currentQuestion });
+            //res.render("questions", { question: currentQuestion });
+            res.send(currentQuestion);
         } else {
             currentQuestion =
                 questionsByCategory[currentCategoryIndex][currentQuestionIndex];
-            res.render("questions", { question: currentQuestion });
+            //res.render("questions", { question: currentQuestion });
+            res.send(currentQuestion);
         }
     } else {
         strikeOfWrongAnswersCount += 1;
@@ -263,7 +268,9 @@ router.post("/nextQuestion", authenticate, (req, res) => {
 
             result.save();
             req.session.destroy();
-            res.render("finish", {
+            res.send()
+            // res.render("finish", {
+            res.send({
                 rightA:
                     (rightAnswersFromA /
                         questionsByCategory[currentCategoryIndex].length) *
@@ -461,15 +468,5 @@ function incrementSkippedAnswers(skippedAnsweredQuestion) {
     console.log("catD last index: " + skippedAnswersFromD);
     console.log("catE last index: " + skippedAnswersFromE);
 }
-/* This is allows to add new questions to the db
-  const q1 = new Question({
-      question_category: categories[i],
-      question_body: `Question 4 From Category ${categories[i]}?`,
-      question_answers: ["Answer A", "Answer B", "Answer C", "Answer D", "Skip"],
-      right_answer_index: 1,
-  });
-  
-  q1.save();
-  */
 
 module.exports = router;
