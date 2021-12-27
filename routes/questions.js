@@ -151,11 +151,8 @@ router.get("/", authenticate, (req, res) => {
             );
             questionsByCategory.push(catA, catB, catC, catD, catE);
 
-            // res.status(200).send(questionsFromJson);
-            // res.render('index', { question: catE[0].question_body, answers: catE[0].question_answers });
             currentQuestion = catA[0];
-            // res.render("questions", { question: questionsByCategory[0][0] });
-            res.send({ question: questionsByCategory[0][0] });
+            res.render("questions", { question: questionsByCategory[0][0] });
         })
         .catch((err) => {
             console.log(err);
@@ -209,8 +206,7 @@ router.post("/nextQuestion", authenticate, (req, res) => {
             
             result.save();
             
-            //res.render("finish", {
-            res.send({
+            res.render("finish", {
                 rightA:
                     (rightAnswersFromA /
                         questionsByCategory[currentCategoryIndex].length) *
@@ -237,13 +233,12 @@ router.post("/nextQuestion", authenticate, (req, res) => {
         if (strikeAnswersCount == 3) {
             switchCategory(currentQuestion, currentQuestionIndex - 1);
             currentQuestionIndex = 0;
-            //res.render("questions", { question: currentQuestion });
-            res.send(currentQuestion);
+            res.render("questions", { question: currentQuestion });
         } else {
             currentQuestion =
                 questionsByCategory[currentCategoryIndex][currentQuestionIndex];
-            //res.render("questions", { question: currentQuestion });
-            res.send(currentQuestion);
+            res.render("questions", { question: currentQuestion });
+            
         }
     } else {
         strikeOfWrongAnswersCount += 1;
@@ -267,10 +262,9 @@ router.post("/nextQuestion", authenticate, (req, res) => {
             });
 
             result.save();
-            req.session.destroy();
-            res.send()
-            // res.render("finish", {
-            res.send({
+
+
+            res.render("finish", {
                 rightA:
                     (rightAnswersFromA /
                         questionsByCategory[currentCategoryIndex].length) *
@@ -292,6 +286,8 @@ router.post("/nextQuestion", authenticate, (req, res) => {
                         questionsByCategory[currentCategoryIndex].length) *
                     100,
             });
+
+            req.session.destroy();
         }
         if (strikeAnswersCount - 1 == 0) {
             switchCategory(currentQuestion, currentQuestionIndex);
@@ -343,7 +339,7 @@ function switchCategory(currentQ, currentQI) {
     });
 
         result.save();
-        req.session.destroy();
+
         res.render("finish", {
             rightA:
                 (rightAnswersFromA /
@@ -366,6 +362,7 @@ function switchCategory(currentQ, currentQI) {
                     questionsByCategory[currentCategoryIndex].length) *
                 100,
         });
+        req.session.destroy();
     } else {
         currentQuestion =
             questionsByCategory[currentCategoryIndex][
