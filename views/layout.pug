@@ -17,11 +17,11 @@ html
                 div.col-12.col-md-6.d-flex.justify-content-center.justify-content-lg-between 
                     a.navbar-brand(href='/').title.ml-5.text-center Bal Bilim
                 div.col-12.col-md-6.d-flex.align-items-center.flex-wrap.p-0.text-center
-                    div.col-md-4.col-12
+                    div.col-md-4.col-12.p-0
                         a(href='/').btn.nav-p.my-0.my-md-4.w-100 Главная
-                    div.col-md-4.col-12
+                    div.col-md-4.col-12.p-0
                         a(href='/profile').btn.nav-p.my-0.my-md-4.w-100 Пройти олимпиаду       
-                    div.col-md-4.col-12  
+                    div.col-md-4.col-12.p-0  
                         if (!loggedIn)
                             a(href='/signup').signBtn.btn.nav-p.w-100.my-0.my-md-4
                                 | Логин/Вход
@@ -36,7 +36,7 @@ html
                 //-             i.fa.fa-home.fa-2x 
         block content
     footer
-        div.row.d-flex.justify-content-center.align-items-center.m-2.p-4
+        div.row.d-flex.justify-content-center.align-items-center.m-2.p-4.bottom
             row.col-4.text-center
                 row
                     h1.title Bal Bilim
