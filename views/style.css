@@ -581,7 +581,7 @@ footer {
 
 
 .features-section_info {
- padding: 50px;
+   padding: 0 10% 0 10%;
 }
 
 .features-section_content {
@@ -590,6 +590,36 @@ footer {
 
 .corner {
    position: relative;
+}
+
+.corner2 {
+   transform: rotate(180deg);
+   fill: #FFF;
+}
+
+.corner3 {
+   transform: rotate(180deg);
+   fill: #D67C42;
+}
+
+#authors-section {
+   position: relative;
+   width: 100%;
+   min-height: 50vh;
+}
+
+.authors-section_title {
+   font-size: 65px;
+   font-weight: 900;
+   text-decoration: underline;
+   color: #D67C42;
+}
+
+.authors-section_text {
+   font-size: 20px;
+   color: #D67C42;
+   margin: 0% 0% 0% 0%;
+   padding: 2% 10% 0 10%;
 }
 
 .features-section_info-feature {
@@ -622,11 +652,30 @@ footer {
    overflow: hidden;
 }
 
+.features-section_icon_overlay2 {
+   position: absolute;
+   height: 100%;
+   width: 100%;
+   background-image: url(https://digital.olzhassuleimenov.site/wp-content/uploads/2021/10/pexels-teona-swift-6913726-scaled.jpg);
+   background-position: center left;
+   background-size: cover;
+   opacity: 0.5;
+   overflow: hidden;
+}
+
 .shape-top {
    position: absolute;
    left: 0;
    z-index: 2;
    width: 100%;
+}
+
+.shape-bottom {
+   position: absolute;
+   left: 0;
+   z-index: 2;
+   width: 100%;
+   bottom: 0;
 }
 
 .features-section_icon_icon {
@@ -638,7 +687,19 @@ footer {
 
 #features-section {
    height: 100%;
+   width: 100%;
 }
+
+#features-section2 {
+   height: 100%;
+   width: 100%;
+   position: relative;
+   border-style: solid;
+    border-width: 2px 0px 0px 0px;
+    border-color: #3D4E84;
+    transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+}
+
 
 .features-section_info-feature-line::after {
    content: "";
