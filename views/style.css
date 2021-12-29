@@ -7,6 +7,7 @@ body {
    color: white;
    height: 100vh;
    animation-fill-mode: both;
+   overflow-x: hidden;
 }
 
 #question-answers {
@@ -35,18 +36,17 @@ body {
    background: linear-gradient(180deg, #D67C42 50%, #3D4E84 70%);
 }
 
-.background-overlay {
-   position: relative;
-   display: inline-block;
+.bg-custom1 {
+   background-color: #f5f4f4;
 }
 
-.background-overlay:after {
+.background-overlay::after {
    content: '';
    position: absolute;
    left: 0;
    top: 0;
    width: 100%;
-   height: 100%;
+   min-height: 1100px;
    display: inline-block;
    background: -moz-linear-gradient(180deg, #050824C4 46%, #D67C42 100%);
    /* FF3.6+ */
@@ -59,20 +59,19 @@ body {
    background: linear-gradient(180deg, #050824C4 46%, #D67C42 100%);
    /* W3C */
    opacity: 1;
+   
 }
 
 
 .text-overlay {
-   position: absolute;
-   left: 0;
-   top: 0;
    width: 100%;
-   height: 100%;
-   z-index: 1;
+   height: auto;
+   z-index: 3;
+   padding: 4em 5em 0 5em;
 }
 
 .section-margin {
-   margin: 0% 0% 2% 10%;
+ 
 }
 
 .section-title {
@@ -80,7 +79,6 @@ body {
    font-size: 65px;
    font-weight: 900;
    line-height: 1;
-   margin: 0% 60% 2% 10%;
 }
 
 .section-subtitle {
@@ -91,10 +89,43 @@ body {
 
 .carousel-image {
    width: 100%;
-   height: 1100px;
+   min-height: 1000px;
+   max-height: 1100px;
    background-position: 50%;
    background-size: cover;
    object-fit: cover;
+}
+
+.carousel {
+   position: absolute;
+   height: 100%;
+   width: 100%;
+}
+
+.background-carousel { 
+   position: relative;
+}
+
+.background-carousel::after {
+   content: '';
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 100%;
+   min-height: 1100px;
+   display: inline-block;
+   background: -moz-linear-gradient(180deg, #050824C4 46%, #D67C42 100%);
+   /* FF3.6+ */
+   background: -webkit-linear-gradient(180deg, #050824C4 46%, #D67C42 100%);
+   /* Chrome10+,Safari5.1+ */
+   background: -o-linear-gradient(180deg, #050824C4 46%, #D67C42 100%);
+   /* Opera 11.10+ */
+   background: -ms-linear-gradient(180deg, #050824C4 46%, #D67C42 100%);
+   /* IE10+ */
+   background: linear-gradient(180deg, #050824C4 46%, #D67C42 100%);
+   /* W3C */
+   opacity: 1;
+   z-index: 0;
 }
 
 .nav-p:hover {
@@ -137,6 +168,11 @@ body {
     padding: 20px 50px 20px 50px;
 }
 
+.testBtn:hover {
+   animation: headShake 0.7s;
+   color: white;
+}
+
 .signUpBtn:hover {
    animation: tada 1.2s;
    color: white;
@@ -150,9 +186,6 @@ body {
    top: 38%;
 }
 
-#forWhomSection {
-
-}
 
 #all-in-one_title {
    color: #FFFFFF;
@@ -163,14 +196,14 @@ body {
     line-height: 1;
 }
 
-#whoSection {
+.whoSection-container {
    color: white;
    justify-content: space-evenly;
    z-index: 1;
    padding: 4%;
 }
 
-#whoSection div {
+.whoSection-container div {
    z-index: inherit;
 }
 
@@ -212,7 +245,7 @@ body {
    display: inline-block;
 }
 .card-main{
-   transform: scale(1.05);
+   
 }
 .card-background-overlay:after {
    border-radius: 50px;
@@ -221,7 +254,7 @@ body {
    left: 0;
    top: 0;
    width: 100%;
-   height: 100%;
+   min-height: 100%;
    background-image: url(https://digital.olzhassuleimenov.site/wp-content/uploads/2021/10/mymind-tZCrFpSNiIQ-unsplash-scaled.jpg);
    background-repeat: no-repeat;
    background-size: auto;
@@ -247,7 +280,10 @@ body {
    background-image: linear-gradient(180deg, #4165AF 0%, #A5530C00 100%);
    padding: 2% 2% 2% 2%;
    box-shadow: 0px 0px 11px 2px rgb(0 0 0 / 50%);
+   border-width: 0px 0px 10px 0px solid;
    text-align: center;
+   -webkit-background-clip: padding-box; /* for Safari */
+    background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
 }
 
 .cards-text {
@@ -255,6 +291,7 @@ body {
    font-size: 20px;
    font-weight: 400;
    color: white;
+   padding-top: 10px;
 }
 
 .cards-title {
@@ -275,6 +312,11 @@ hr {
    background-color: #F07D3C;
    font-weight: 700;
    box-shadow: 0px 0px 10px 0px rgb(203 123 40 / 50%);
+   transition: all .2s ease-in-out;
+}
+
+#testBtn:hover {
+   transform: scale(1.1);
 }
 
 #testProgress {
@@ -285,8 +327,6 @@ hr {
 .contacts {
    font-size: 15px;
    font-weight: 400;
-   line-height: 0.1em;
-   margin: 0 0 20px;
 }
 
 .heading-title {
@@ -307,14 +347,21 @@ hr {
 
 
 footer {
-   background-color: rgb(27, 36, 76);
+   background-color: #1B244C;
 }
 
+.bg-footer {
+   background-color: #1B244C;
+}
 
 .option-name {}
 
 .bg-custom {
    background-color: #3D4E84;
+}
+
+.bg-custom2 {
+   background-color: #D67C42;
 }
 
 .shadow {
@@ -592,7 +639,11 @@ footer {
 
 
 .features-section_info {
-  
+  padding: 25% 5% 5% 5%;
+}
+
+.features2-section_info {
+   padding: 5% 5% 15% 5%;
 }
 
 .features-section_content {
@@ -702,12 +753,10 @@ footer {
 }
 
 #features-section {
-   height: 100%;
    width: 100%;
 }
 
 #features-section2 {
-   height: 100%;
    width: 100%;
    position: relative;
    border-style: solid;
@@ -754,7 +803,7 @@ footer {
 }
 
 .what-to-do_content-wrapper {
-   padding: 50px 0 50px 0;
+   padding: 100px 0 50px 0;
 }
 
 .what-to-do_title {
@@ -768,6 +817,9 @@ footer {
    min-height: 700px;
 }
 
+#wrapper {
+   position: relative;
+}
 
 .about-us-card_title {
    padding: 5% 5% 5% 5%;
@@ -825,7 +877,7 @@ footer {
    color: white;
 }
 
-.list-group-item {
+.list-group-item-custom {
    border: 1px solid #D67C42;
    padding: 0 0 20px 0;
    margin-top: 20px;
