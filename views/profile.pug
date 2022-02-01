@@ -12,9 +12,9 @@ block content
         if (results != 0) 
             div.row.d-flex.justify-content-center.align-items-center.h-100  
                 div.side-stripe.bg-primary
-                    .col-12.mt-2
-                    p.h3.text-center.mt-2.font-weight-bold.toCapital Ваши результаты прошлого теста :
             div.row.d-flex.justify-content-center.align-items-center.m-2
+                .col-12.mt-2
+                    p.h3.text-center.mt-2.font-weight-bold.toCapital.text-primary Ваши результаты прошлого теста :
                 .col-md-12.mb-3
                     .progress.skill-bar
                         .progress-bar(role='progressbar' aria-valuenow=`${results.catA}` aria-valuemin='15' aria-valuemax='100').bg-warning
@@ -48,7 +48,6 @@ block content
                                     i.val.left #{results.catE}
         else
             div.row.d-flex.justify-content-center.align-items-center.h-100
-                div.side-stripe.bg-primary
                 .col-12.mt-2
                     p.h3.text-center.mt-2.font-weight-bold.toCapital.text-primary Как пройти олимпиаду
             div.row.d-flex.justify-content-center.align-items-center.m-2.text-primary
@@ -93,10 +92,7 @@ block content
                         script.
                             document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
                         input(type="submit" value="Оплатить с карты").btn.main-color
-          
 
-
-            div.side-stripe.bg-primary
             
     script.
         $(document).ready(function() {

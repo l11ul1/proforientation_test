@@ -292,7 +292,7 @@ router.post("/nextQuestion", authenticate, (req, res) => {
         if (strikeAnswersCount - 1 == 0) {
             switchCategory(currentQuestion, currentQuestionIndex);
             currentQuestionIndex = 0;
-            res.render("questions", { question: currentQuestion });
+            res.render("questions", { question: currentQuestion});
         }
         if (strikeOfWrongAnswersCount == 2) {
             switchCategory(currentQuestion, currentQuestionIndex);
