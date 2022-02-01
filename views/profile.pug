@@ -1,20 +1,16 @@
 extends layout
 
 block content
-    .container.container.bg-white.mt-4.shadow
+    .container.bg-white.mt-4.shadow
         div.row.d-flex.justify-content-center.align-items-center.h-100
-            div.top-stripe.main-color
+            div.top-stripe.signBtn
             .col-12.my-3
-                p.h2.text-center.mt-4.font-weight-bold.text-primary Добро пожаловать — #{name}
-
-            
-    .container.container.bg-white.mt-4.secondary-shadow
-        if (results != 0) 
-            div.row.d-flex.justify-content-center.align-items-center.h-100  
-                div.side-stripe.bg-primary
-                    .col-12.mt-2
-                    p.h3.text-center.mt-2.font-weight-bold.toCapital Ваши результаты прошлого теста :
+                p.h2.text-center.mt-4.font-weight-bold.text-primary Добро пожаловать — #{name}       
+    if (results != 0)  
+        .container.bg-white.mt-4.secondary-shadow
             div.row.d-flex.justify-content-center.align-items-center.m-2
+                .col-12.my-2
+                    p.text-center.mt-2.container-title.text-primary Основываясь на результатах, лучше всего у вас получается :
                 .col-md-12.mb-3
                     .progress.skill-bar
                         .progress-bar(role='progressbar' aria-valuenow=`${results.catA}` aria-valuemin='15' aria-valuemax='100').bg-warning
@@ -46,11 +42,88 @@ block content
                                     i.fa.fa-star
                                     |  Category E:  
                                     i.val.left #{results.catE}
-        else
+        .container.bg-secondary.mt-4.secondary-shadow
+            div.row.d-flex.justify-content-center.align-items-center.p-2
+                .col-12 
+                    p.text-center.mt-2.container-title Что это означает?
+                hr.col-10.divider-secondary
+                .col-12.row.d-flex.justify-content-center.align-items-center
+                    .col-lg-4.col-12
+                        p Проснувшись однажды утром после беспокойного сна, Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое. Проснувшись однажды утром после беспокойного сна, Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое.Проснувшись однажды утром после беспокойного сна, Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое.Проснувшись однажды утром после беспокойного сна, Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое.
+                    .col-lg-4.col-12
+                        p Проснувшись однажды утром после беспокойного сна, Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое. Проснувшись однажды утром после беспокойного сна, Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое.Проснувшись однажды утром после беспокойного сна, Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое.Проснувшись однажды утром после беспокойного сна, Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое.
+                    .col-lg-4.col-12
+                        p Проснувшись однажды утром после беспокойного сна, Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое. Проснувшись однажды утром после беспокойного сна, Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое.Проснувшись однажды утром после беспокойного сна, Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое.Проснувшись однажды утром после беспокойного сна, Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое.
+        .container.bg-white.mt-4.secondary-shadow
+            div.row.d-flex.justify-content-center.align-items-center.p-2
+                .col-12 
+                    p.text-center.mt-2.text-primary.container-title Что нужно смотреть, чтобы развиваться в этой сфере дальше?
+                hr.col-10.divider-primary
+                .col-12.row.d-flex.justify-content-center.align-items-center.mb-5
+                    div.col-12.category
+                        div
+                            i.fas.fa-dot-circle
+                        div
+                            p Канал А
+                        div
+                            a(href="#").btn#testBtn.p-3.rounded Перейти
+                    div.col-12.category
+                        div
+                            i.fas.fa-dot-circle
+                        div
+                            p Канал B
+                        div
+                            a(href="#").btn#testBtn.p-3.rounded Перейти
+                    div.col-12.category
+                        div
+                            i.fas.fa-dot-circle
+                        div
+                            p Канал C
+                        div
+                            a(href="#").btn#testBtn.p-3.rounded Перейти
+                    div.col-12.category
+                        div
+                            i.fas.fa-dot-circle
+                        div
+                            p Канал D
+                        div
+                            a(href="#").btn#testBtn.p-3.rounded Перейти
+        .container.mt-4.shadow.bg-custom
+            div.row.d-flex.justify-content-center.align-items-center.p-2
+                .col-12 
+                    p.text-center.mt-2.container-title В какие университеты можно поступить?
+                hr.col-10.divider-secondary
+                .col-12.row.d-flex.justify-content-center.align-items-center.mb-5
+                    div.col-12.category.category-secondary
+                        div
+                            i.fas.fa-dot-circle
+                        div
+                            p Университет A
+                    div.col-12.category.category-secondary
+                        div
+                            i.fas.fa-dot-circle
+                        div
+                            p Университет B
+                    div.col-12.category.category-secondary
+                        div
+                            i.fas.fa-dot-circle
+                        div
+                            p Университет C
+                    div.col-12.category.category-secondary
+                        div
+                            i.fas.fa-dot-circle
+                        div
+                            p Университет D
+                    div.col-12.category.category-secondary
+                        div
+                            i.fas.fa-dot-circle
+                        div
+                            p Университет E    
+    else
+        .container.container.bg-white.mt-4.secondary-shadow
             div.row.d-flex.justify-content-center.align-items-center.h-100
-                div.side-stripe.bg-primary
                 .col-12.mt-2
-                    p.h3.text-center.mt-2.font-weight-bold.toCapital.text-primary Как пройти олимпиаду
+                    p.text-center.mt-2.container-title.text-primary Как пройти олимпиаду
             div.row.d-flex.justify-content-center.align-items-center.m-2.text-primary
                 .row.my-4
                     .col-4
@@ -72,13 +145,6 @@ block content
                     //-     li.list-group-item Pay 1000KZT
                     //-     li.list-group-item Take a test
                     //-     li.list-group-item See results
-    
-
-
-
-
-
-
     .container.bg-white.mt-4.secondary-shadow.px-0
         div.row.d-flex.justify-content-center.align-items-center.h-100
             .col-12.ml-1
@@ -93,10 +159,6 @@ block content
                         script.
                             document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
                         input(type="submit" value="Оплатить с карты").btn.main-color
-          
-
-
-            div.side-stripe.bg-primary
             
     script.
         $(document).ready(function() {
