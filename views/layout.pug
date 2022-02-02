@@ -24,11 +24,11 @@ html
                         a(href='/profile').btn.nav-p.my-0.my-md-4.w-100 Пройти олимпиаду       
                     div.col-md-4.col-12.p-0  
                         if (!loggedIn)
-                            a(href='/signup').signBtn.btn.nav-p.w-100.my-0.my-md-4
+                            a(href='/login').signBtn.btn.nav-p.w-100.my-0.my-md-4
                                 | Логин/Вход
                         else
                             a(href='/logout').signBtn.btn.nav-p.w-100.my-0.my-md-4
-                                | Выход 
+                                | Выход
                 //- div.col-md-3.col-12
                 //-     a(href='/profile').btn.mx-2.nav-p
                 //-         if (!loggedIn)
