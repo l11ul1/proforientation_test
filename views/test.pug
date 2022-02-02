@@ -3,9 +3,9 @@ extends layout
 block content
     .container-fluid.bg-custom1
         div.row.d-flex.justify-content-around.align-items-center.p-3
-            .col-12.mt-4
+            .col-12.my-4
                 p.h2.text-center.mt-4.text-primary Ваши результаты теста:
-            .col-md-6.col-12.row.d-flex.align-items-center.my-4
+            .col-md-4.col-12.row.d-flex.align-items-center.my-4
                 p.text-center.mt-2.container-title.text-primary Основываясь на результатах, лучше всего у вас получается:
                 hr.col-10.divider-primary
                 .col-12.row.d-flex.justify-content-center
@@ -28,18 +28,18 @@ block content
                         div
                             i.fas.fa-dot-circle
                         div
-                            p Физика и математика
+                            p Физика
                     div.col-12.category
                         div
                             i.fas.fa-dot-circle
                         div
-                            p Графдизайн
-            .col-md-4.col-12.bg-white.my-4.shadow.p-2.d-flex.justify-content-center
+                            p Математика
+            .col-md-6.col-lg-6.col-10.bg-white.my-4.shadow.p-2.d-flex.justify-content-center
                 canvas#myChart
 
 
         script.
-            var xValues = ["Digital Marketing", "Графический дизайн", "Физика и математика", "ЧОП", "Графдизайн"];
+            var xValues = ["Digital Marketing", "Графический дизайн", "ЧОП", "Физика", "Математика"];
             var yValues = [parseInt("0"), parseInt("60"), parseInt("0"), parseInt("0"), parseInt("0")];
             var barColors = ["red", "green","blue","orange","brown"];
 
@@ -72,18 +72,18 @@ block content
                     p.text-center.mt-2.container-title Что это означает?
                 hr.col-10.divider-secondary
                 .col-12.row.d-flex.justify-content-center.align-items-center.mb-5
-                    .col-lg-4.col-12
+                    .col-md-4.col-12.col-xl-12
                         p Проснувшись однажды утром после беспокойного сна, Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое. Проснувшись однажды утром после беспокойного сна, Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое.Проснувшись однажды утром после беспокойного сна, Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое.Проснувшись однажды утром после беспокойного сна, Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое.
-                    .col-lg-4.col-12
+                    .col-md-4.col-12.col-xl-12
                         p Проснувшись однажды утром после беспокойного сна, Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое. Проснувшись однажды утром после беспокойного сна, Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое.Проснувшись однажды утром после беспокойного сна, Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое.Проснувшись однажды утром после беспокойного сна, Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое.
-                    .col-lg-4.col-12
+                    .col-md-4.col-12.col-xl-12
                         p Проснувшись однажды утром после беспокойного сна, Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое. Проснувшись однажды утром после беспокойного сна, Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое.Проснувшись однажды утром после беспокойного сна, Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое.Проснувшись однажды утром после беспокойного сна, Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое.
     .container-fluid.bg-white
             div.row.d-flex.justify-content-center.align-items-center.p-2
                 .col-12.mt-4 
                     p.text-center.mt-2.text-primary.container-title Что нужно смотреть, чтобы развиваться в этой сфере дальше?
                 hr.col-10.divider-primary
-                .col-12.row.d-flex.justify-content-center.align-items-center.mb-5
+                .col-12.row.d-flex.justify-content-center.align-items-center.mb-5.category-wrapper
                     div.col-12.category
                         div
                             i.fas.fa-dot-circle
@@ -117,7 +117,7 @@ block content
                 .col-12.mt-4 
                     p.text-center.mt-2.container-title В какие университеты можно поступить?
                 hr.col-10.divider-secondary
-                .col-12.row.d-flex.justify-content-center.align-items-center.mb-5
+                .col-12.row.d-flex.justify-content-center.align-items-center.mb-5.category-wrapper
                     div.col-12.category.category-secondary
                         div
                             i.fas.fa-dot-circle

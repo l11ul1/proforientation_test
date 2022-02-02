@@ -921,9 +921,15 @@ footer {
   padding: 0 2rem 0 2rem;
 }
 
-.category {
+.category-wrapper .category {
   display: flex;
   justify-content: center;
+  align-items: center;
+  margin: 1rem;
+}
+
+.category {
+  display: flex;
   align-items: center;
   margin: 1rem;
 }
