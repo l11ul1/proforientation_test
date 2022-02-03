@@ -8,7 +8,6 @@ body {
 	height: 100vh;
 	animation-fill-mode: both;
 	overflow-x: hidden;
-	overflow: hidden;
 }
 
 #question-answers {
