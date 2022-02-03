@@ -18,7 +18,7 @@ const { json } = require("express");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
 
-const PORT = 8888;
+const PORT = process.env.PORT || 8888;
 const url =
 	"mongodb+srv://admin:3989302As@cluster0.o2m8r.mongodb.net/prof_orientation_test_db?retryWrites=true&w=majority";
 const connectionOptions = { useNewUrlParser: true, useUnifiedTopology: true };
