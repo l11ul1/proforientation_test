@@ -19,6 +19,8 @@ const secretKey =
 
 const stripe = require("stripe")(secretKey);
 
+const toastr = require("toastr");
+
 mongoose
 	.connect(url, connectionOptions)
 	.then(() => {
@@ -92,6 +94,7 @@ router.post("/login", (req, res) => {
 			bcrypt.compare(password, user.password, function (err, result) {
 				if (err) {
 					console.log("//TODO err hand");
+					res.render("login", { err: "Упс что-то пошло не так" });
 				}
 				if (result) {
 					const token = jwt.sign(
@@ -108,10 +111,12 @@ router.post("/login", (req, res) => {
 					console.log("Successfully logged in");
 				} else {
 					console.log("//TODO err hand Password doesnt match");
+					res.render("login", { err: "Неправильный пароль" });
 				}
 			});
 		} else {
 			console.log("//TODO err hand No user found");
+			res.render("login", { err: "Аккаунт не существует" });
 		}
 	});
 });
