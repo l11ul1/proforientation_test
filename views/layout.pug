@@ -12,7 +12,7 @@ html
         script(src='https://code.jquery.com/jquery-3.6.0.min.js')
         style
             include style.css
-    body.bg-custom
+    body
         nav.navbar.navbar-expand-lg.custom-navbar.d-flex
             navbar.row.px-5.w-100
                 div.col-12.col-md-6.d-flex.justify-content-center.justify-content-lg-between 
@@ -36,25 +36,24 @@ html
                 //-         else 
                 //-             i.fa.fa-home.fa-2x 
         block content
+    script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js' integrity='sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo' crossorigin='anonymous')
+    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js' integrity='sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6' crossorigin='anonymous')
+    script(src='https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js') 
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js')
     footer
-        div.row.d-flex.justify-content-center.align-items-center.m-2.p-4.bottom
-            row.col-4.text-center
-                row
-                    h1.title Bal Bilim
-                    p.heading-title Когда знание становится преимуществом 
-            row.col-4.d-flex.justify-content-center
+        .col.d-flex.justify-content-center.align-items-center.p-4.bottom
+            .col-4.text-center
+                h1.title Bal Bilim
+                p.heading-title Когда знание становится преимуществом 
+            .col-4.d-flex.justify-content-center
                 i.fab.fa-facebook.social-icon
                 i.fab.fa-instagram.social-icon
                 i.fa.fa-envelope.social-icon
-            row.col-4.text-right
+            .col-4.text-right
                 ul.list-group.list-group-flush.contacts
                     li.list-group-item.bg-footer 050016, г. Алматы. Бостандыкский район Индустриальная, 18а
                     li.list-group-item.bg-footer Тел: +7 (771) 517-01-22
                     li.list-group-item.bg-footer balbilim@mail.ru
         
     
-    script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js' integrity='sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo' crossorigin='anonymous')
-    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js' integrity='sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6' crossorigin='anonymous')
-    script(src='https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js') 
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js')
     
