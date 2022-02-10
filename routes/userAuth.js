@@ -22,7 +22,7 @@ const stripe = require("stripe")(secretKey);
 const toastr = require("toastr");
 
 mongoose
-	.connect(url, connectionOptions)
+	.connect(process.env.DATABASE, connectionOptions)
 	.then(() => {
 		console.log("Users connected successfully");
 	})

@@ -63,9 +63,11 @@ body {
 
 .text-overlay {
 	width: 100%;
-	height: auto;
+	min-height: 1100px;
+	height: 100%;
 	z-index: 3;
 	padding: 4em 5em 0 5em;
+	justify-content: center;
 }
 
 .section-margin {
@@ -93,16 +95,26 @@ body {
 
 .carousel-image {
 	width: 100%;
-	min-height: 1100px;
+	height: 100%;
 	background-position: 50%;
 	background-size: cover;
 	object-fit: cover;
+}
+
+.carousel-item {
+	height: 100%;
+}
+
+.carousel-inner {
+	height: 100%;
 }
 
 .carousel {
 	position: absolute;
 	height: 100%;
 	width: 100%;
+	top: 0;
+	left: 0;
 }
 
 .background-carousel {
@@ -115,7 +127,7 @@ body {
 	left: 0;
 	top: 0;
 	width: 100%;
-	min-height: 1100px;
+	height: 100%;
 	display: inline-block;
 	background: -moz-linear-gradient(180deg, #050824c4 46%, #d67c42 100%);
 	/* FF3.6+ */
@@ -128,7 +140,7 @@ body {
 	background: linear-gradient(180deg, #050824c4 46%, #d67c42 100%);
 	/* W3C */
 	opacity: 1;
-	z-index: 0;
+	z-index: -1;
 }
 
 .nav-p:hover {
@@ -144,6 +156,14 @@ body {
 }
 
 .btn {
+}
+
+.form-check {
+	gap: 0.35rem;
+}
+
+.sign-container {
+	height: 80vh;
 }
 
 .signBtn {
@@ -190,9 +210,9 @@ body {
 }
 
 #all-in-one_title {
+	font-size: 4rem;
 	color: #ffffff;
 	font-family: "Inter", Sans-serif;
-	font-size: 4rem;
 	font-weight: 900;
 	text-decoration: underline;
 	line-height: 1;
@@ -252,6 +272,8 @@ body {
 	display: inline-block;
 }
 .card-main {
+	position: relative;
+	display: inline-block;
 }
 .card-background-overlay:after {
 	border-radius: 50px;
@@ -354,6 +376,10 @@ hr {
 
 footer {
 	background-color: #1b244c;
+}
+
+.list-group-item {
+	color: #fff;
 }
 
 .bg-footer {
@@ -509,6 +535,7 @@ footer {
 	margin: 05% 0% 05% 0%;
 	padding: 10% 10% 10% 10%;
 	border-radius: 100px 0px 0px 100px;
+	z-index: 3;
 }
 #question-body-wrapper {
 	background-color: #e1e1e1;
@@ -542,6 +569,7 @@ footer {
 	padding: 5% 5% 5% 5%;
 	border-radius: 50px 50px 50px 50px;
 	z-index: 1;
+	position: relative;
 }
 
 #digitalMarketingOverlay {
@@ -719,6 +747,7 @@ footer {
 }
 
 .features-section_icon {
+	position: relative;
 }
 .features-section_icon_overlay {
 	position: absolute;
@@ -899,6 +928,10 @@ footer {
 .about-us-card_btn_btn:hover {
 	animation: swing 1.2s;
 	color: white;
+}
+
+.about-us-card_additional ul li {
+	color: #d67c42;
 }
 
 .list-group-item-custom {

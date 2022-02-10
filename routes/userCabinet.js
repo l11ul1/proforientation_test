@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const express = require("express");
-const url =
-	"mongodb+srv://admin:3989302As@cluster0.o2m8r.mongodb.net/prof_orientation_test_db?retryWrites=true&w=majority";
+
 const connectionOptions = {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
@@ -14,7 +13,7 @@ const authenticate = require("../middleware/authenticate");
 const { userAuth } = require("./userAuth");
 
 mongoose
-	.connect(url, connectionOptions)
+	.connect(process.env.DATABASE, connectionOptions)
 	.then(() => {
 		console.log("Users connected successfully");
 	})

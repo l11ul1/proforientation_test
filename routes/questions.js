@@ -1,10 +1,16 @@
 const mongoose = require("mongoose");
 const express = require("express");
-const url =
-	"mongodb+srv://admin:3989302As@cluster0.o2m8r.mongodb.net/prof_orientation_test_db?retryWrites=true&w=majority";
 const connectionOptions = { useNewUrlParser: true, useUnifiedTopology: true };
 const router = express.Router();
 const authenticate = require("../middleware/authenticate");
+const path = require("path");
+
+router.use(
+	"/css",
+	express.static(path.join("node_modules/bootstrap/dist/css"))
+);
+router.use("/js", express.static(path.join("node_modules/bootstrap/dist/js")));
+router.use("/js", express.static(path.join("node_modules/jquery/dist")));
 
 let userId = "";
 
@@ -49,7 +55,7 @@ let catD = [];
 let catE = [];
 
 mongoose
-	.connect(url, connectionOptions)
+	.connect(process.env.DATABASE, connectionOptions)
 	.then(() => {
 		console.log("Questions connected successfully");
 	})

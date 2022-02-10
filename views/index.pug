@@ -2,26 +2,8 @@ extends layout
 
 block content
    
-    section#wrapper.p-0.container-fluid.bg-custom2.pb-5
-        .carousel.slide(data-ride='carousel')
-            .carousel-inner
-                .carousel-item.active
-                    div
-                        img(src='https://digital.olzhassuleimenov.site/wp-content/uploads/2021/10/pexels-pixabay-414974.jpg').carousel-image
-                .carousel-item
-                    div
-                        img(src='https://digital.olzhassuleimenov.site/wp-content/uploads/2021/10/pexels-pixabay-267885.jpg').carousel-image
-                .carousel-item
-                    div
-                        img(src='https://digital.olzhassuleimenov.site/wp-content/uploads/2021/10/pexels-tima-miroshnichenko-7567522.jpg').carousel-image
-                .carousel-item
-                    div
-                        img(src='https://digital.olzhassuleimenov.site/wp-content/uploads/2021/10/pexels-teona-swift-6913726-scaled.jpg').carousel-image
-                .carousel-item
-                    div
-                    img(src='https://digital.olzhassuleimenov.site/wp-content/uploads/2021/10/pexels-mentatdgt-1319855.jpg').carousel-image 
-        .background-carousel   
-        .text-overlay.d-flex.col.flex-column
+    section#wrapper.p-0.container-fluid.bg-custom2
+        .text-overlay.d-flex.col.flex-column.background-carousel  
             .col-12.flex-column
                 .col-12.pt-5.mt-5.mb-3
                     h2.section-title.left.font-size-sm Найди свою специальность.
@@ -48,6 +30,18 @@ block content
                         h3.mt-4.text-break Точная характеристика
                             hr
                         p.cards-text Получи диаграмму, которая описывает твои способности по каждому из предметов
+        .carousel.slide(data-ride='carousel')
+            .carousel-inner
+                .carousel-item.active
+                    img(src='https://digital.olzhassuleimenov.site/wp-content/uploads/2021/10/pexels-pixabay-414974.jpg').carousel-image
+                .carousel-item
+                    img(src='https://digital.olzhassuleimenov.site/wp-content/uploads/2021/10/pexels-pixabay-267885.jpg').carousel-image
+                .carousel-item
+                    img(src='https://digital.olzhassuleimenov.site/wp-content/uploads/2021/10/pexels-tima-miroshnichenko-7567522.jpg').carousel-image
+                .carousel-item
+                    img(src='https://digital.olzhassuleimenov.site/wp-content/uploads/2021/10/pexels-teona-swift-6913726-scaled.jpg').carousel-image
+                .carousel-item
+                    img(src='https://digital.olzhassuleimenov.site/wp-content/uploads/2021/10/pexels-mentatdgt-1319855.jpg').carousel-image 
                          
     section#forWhomSection.d-flex.col.justify-content-space-evenly.w-100.bg-orange.m-0.flex-wrap
         div.d-flex.col-12.justify-content-center.text-center.mt-5
@@ -183,7 +177,7 @@ block content
                         p Можешь учиться, пока проходишь тест из 1480 вопросов
                 .col
                     a(href="/")#testBtn.btn Вернуться к просмотру предметов
-            div.shape-bottom
+            div.shape-bottom.p-0
                 svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none").corner2
                     path(d="M0,6V0h1000v100L0,6z" style="fill: #FFFFF")
     section#authors-section.bg-white

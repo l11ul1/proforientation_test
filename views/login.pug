@@ -1,9 +1,9 @@
 extends layout
 
 block content
-    .container.sign-container.d-flex.justify-content-center.flex-column
-        div.row.d-flex.justify-content-center.align-items-center.bg-white.p-5
-            .col-12.mt-4.d-flex.justify-content-center.flex-column
+    .container.sign-container.d-flex.justify-content-center.align-items-center
+        .col
+            .col-12.mt-4.d-flex.justify-content-center.align-items-center.flex-column.bg-white.p-5.rounded.shadow
                 h1.text-center.mt-4.font-weight-bold.text-primary Логин
                 .col-md-6.col-12.align-self-center
                     form(action='/login' method='POST').mt-4.mx-1.mx-md-4

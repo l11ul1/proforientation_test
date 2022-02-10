@@ -2,8 +2,8 @@ extends layout
 
 block content
     .container.sign-container.d-flex.justify-content-center.flex-column
-        div.row.d-flex.justify-content-center.align-items-center.bg-white
-            .col-12.mt-4.d-flex.flex-column.justify-content-center
+        .col.d-flex.justify-content-center.align-items-center
+            .col-12.mt-4.d-flex.flex-column.justify-content-center.bg-white.p-5.rounded.shadow
                 p.h1.text-center.mt-4.font-weight-bold.text-primary Регистрация аккаунта
                 .col-md-6.col-12.align-self-center 
                     form(method='POST' action='/signup').mt-4.mx-1.mx-md-4
@@ -22,7 +22,7 @@ block content
                         div.d-flex.justify-content-center.mb-1       
                             .form-check.text-primary.d-flex
                                 input.form-check-input(id='terms', type='checkbox' checked=false)
-                                label.form-check-label(for='terms').h6 
+                                label.form-check-label(for='terms').h6
                                     | Я согласен с  
                                     a(href='#!') условиями                         
                         div.d-flex.justify-content-center
