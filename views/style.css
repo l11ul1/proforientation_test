@@ -223,6 +223,7 @@ body {
 	justify-content: space-evenly;
 	z-index: 1;
 	padding: 4%;
+	gap: 2rem;
 }
 
 .whoSection-container div {
