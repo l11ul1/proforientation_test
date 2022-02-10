@@ -303,7 +303,7 @@ body {
 
 .cards-title {
   font-family: "Inter", Sans-serif;
-  font-size: 2.5rem;
+  font-size: 2.25rem;
   font-weight: 800;
 }
 
@@ -674,6 +674,7 @@ footer {
   position: relative;
   width: 100%;
   min-height: 50vh;
+  padding-bottom: 10%;
 }
 
 .authors-section_title {
@@ -703,6 +704,7 @@ footer {
   font-size: 3.5rem;
   font-weight: 900;
   text-decoration: underline;
+  overflow-wrap: break-word;
 }
 
 .features-section_icon {
@@ -905,6 +907,8 @@ footer {
 .sponsors_title-text {
   font-size: 4rem;
   font-weight: 900;
+  overflow-wrap: break-word;
+  padding: 2rem;
 }
 
 .sponsors-img {
