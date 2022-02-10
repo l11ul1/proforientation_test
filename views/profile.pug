@@ -16,32 +16,32 @@ block content
                         .progress-bar(role='progressbar' aria-valuenow=`${results.catA}` aria-valuemin='15' aria-valuemax='100').bg-warning
                             .skill
                                 i.fa.fa-star
-                                | Digital Marketing: 
-                                i.val #{" "+results.catA} 
+                                |  Графический дизайн: 
+                                i.val #{" "+parseInt(results.catA)}%
                     .progress.skill-bar
                         .progress-bar(role='progressbar' aria-valuenow=`${results.catB}` aria-valuemin='15' aria-valuemax='100').bg-warning
                             .skill
                                 i.fa.fa-star
-                                |  Графический дизайн:
-                                i.val #{" "+results.catB} 
+                                |  Физика:
+                                i.val #{" "+parseInt(results.catB)}%
                     .progress.skill-bar
                         .progress-bar(role='progressbar'  aria-valuenow=`${results.catC}` aria-valuemin='15' aria-valuemax='100').bg-warning
                             .skill
                                 i.fa.fa-star
-                                |  Физика и математика: 
-                                i.val #{results.catC}
+                                |  Digital Marketing: 
+                                i.val #{parseInt(results.catC)}% 
                     .progress.skill-bar
                         .progress-bar(role='progressbar'  aria-valuenow=`${results.catD}` aria-valuemin='15' aria-valuemax='100').bg-warning
                             .skill
                                 i.fa.fa-star
-                                |  ЧОП: 
-                                i.val #{results.catD} 
+                                |  Mатематика: 
+                                i.val #{parseInt(results.catD)}% 
                     .progress.skill-bar
                         .progress-bar(role='progressbar'  aria-valuenow=`${results.catE}` aria-valuemin='15' aria-valuemax='100').bg-warning 
                                 .skill
                                     i.fa.fa-star
-                                    |  Графдизайн:  
-                                    i.val.left #{results.catE}
+                                    |  ЧОП:  
+                                    i.val.left #{parseInt(results.catE)}%
         .container.bg-secondary.mt-4.secondary-shadow
             div.row.d-flex.justify-content-center.align-items-center.p-2
                 .col-12 
@@ -59,7 +59,7 @@ block content
                 .col-12 
                     p.text-center.mt-2.text-primary.container-title Что нужно смотреть, чтобы развиваться в этой сфере дальше?
                 hr.col-10.divider-primary
-                .col-12.row.d-flex.justify-content-center.align-items-center.mb-5
+                .col-12.row.d-flex.justify-content-center.align-items-center.mb-5.category-wrapper
                     div.col-12.category
                         div
                             i.fas.fa-dot-circle
@@ -93,7 +93,7 @@ block content
                 .col-12 
                     p.text-center.mt-2.container-title В какие университеты можно поступить?
                 hr.col-10.divider-secondary
-                .col-12.row.d-flex.justify-content-center.align-items-center.mb-5
+                .col-12.row.d-flex.justify-content-center.align-items-center.mb-5.category-wrapper
                     div.col-12.category.category-secondary
                         div
                             i.fas.fa-dot-circle
@@ -153,7 +153,7 @@ block content
                     if (results == 0) 
                         h3.mb-3 Хочешь пройти тест?
                     else 
-                        h3.mb-3.t Попробуй еще один раз?
+                        h3.mb-3.t Хочешь пройти тест?
                     form(action="/profile/payment" method='POST')
                         script.stripe-button(src='//checkout.stripe.com/v2/checkout.js' data-key=`${key}` data-amount='100000' data-currency='kzt' data-name='Vladislav Mun' data-description='Welcome to our secret shop' data-locale='auto')
                         script.

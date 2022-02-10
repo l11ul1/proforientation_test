@@ -13,33 +13,33 @@ block content
                         div
                             i.fas.fa-dot-circle
                         div
-                            p Digital Marketing
+                            p Графический дизайн - #{parseInt(rightA)}%
                     div.col-12.category
                         div
                             i.fas.fa-dot-circle
                         div
-                            p Графический дизайн
+                            p Физика - #{parseInt(rightB)}%
                     div.col-12.category
                         div
                             i.fas.fa-dot-circle
                         div
-                            p ЧОП
+                            p Digital Marketing - #{parseInt(rightC)}%
                     div.col-12.category
                         div
                             i.fas.fa-dot-circle
                         div
-                            p Физика и математика
+                            p Mатематика - #{parseInt(rightD)}%
                     div.col-12.category
                         div
                             i.fas.fa-dot-circle
                         div
-                            p Графдизайн
+                            p ЧОП - #{parseInt(rightE)}%
             .col-md-4.col-12.bg-white.my-4.shadow.p-2.d-flex.justify-content-center
                 canvas#myChart
 
 
         script.
-            var xValues = ["Digital Marketing", "Графический дизайн", "Физика и математика", "ЧОП", "Графдизайн"];
+            var xValues = ["Графический дизайн", "Физика", "Digital Marketing", "Mатематика", "ЧОП"];
             var yValues = [parseInt("#{rightA}"), parseInt("#{rightB}"), parseInt("#{rightC}"), parseInt("#{rightD}"), parseInt("#{rightE}")];
             var barColors = ["red", "green","blue","orange","brown"];
 
@@ -83,7 +83,7 @@ block content
                 .col-12.mt-4 
                     p.text-center.mt-2.text-primary.container-title Что нужно смотреть, чтобы развиваться в этой сфере дальше?
                 hr.col-10.divider-primary
-                .col-12.row.d-flex.justify-content-center.align-items-center.mb-5
+                .col-12.row.d-flex.justify-content-center.align-items-center.mb-5.category-wrapper
                     div.col-12.category
                         div
                             i.fas.fa-dot-circle
@@ -117,7 +117,7 @@ block content
                 .col-12.mt-4 
                     p.text-center.mt-2.container-title В какие университеты можно поступить?
                 hr.col-10.divider-secondary
-                .col-12.row.d-flex.justify-content-center.align-items-center.mb-5
+                .col-12.row.d-flex.justify-content-center.align-items-center.mb-5.category-wrapper
                     div.col-12.category.category-secondary
                         div
                             i.fas.fa-dot-circle

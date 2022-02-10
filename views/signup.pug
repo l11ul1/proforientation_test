@@ -1,30 +1,30 @@
 extends layout
 
 block content
-    .container-fluid.bg-white
-        div.row.d-flex.justify-content-center.align-items-center.h-100
-            .col-12.mt-4
+    .container.sign-container.d-flex.justify-content-center.flex-column
+        div.row.d-flex.justify-content-center.align-items-center.bg-white
+            .col-12.mt-4.d-flex.flex-column.justify-content-center
                 p.h1.text-center.mt-4.font-weight-bold.text-primary Регистрация аккаунта
-            
-            form(method='POST' action='/signup').mt-4.mx-1.mx-md-4
-                div.d-flex.flex-row.align-items-center.mb-4 
-                    i.fa.fa-user.fa-lg.me-3.fa-fw.pr-2.text-primary
-                    .form-outline.flex-fill.mb-0
-                        input.form-control(type='text', name='name' autofocus=true placeholder='Name')
-                div.d-flex.flex-row.align-items-center.mb-4 
-                    i.fa.fa-envelope.fa-lg.me-3.fa-fw.pr-2.text-primary
-                    .form-outline.flex-fill.mb-0
-                        input.form-control(type='text', name='email' placeholder='Email')
-                div.d-flex.flex-row.align-items-center.mb-4 
-                    i.fa.fa-lock.fa-lg.me-3.fa-fw.pr-2.text-primary
-                    .form-outline.flex-fill.mb-0
-                        input.form-control(type='password', name='password' placeholder='Password')
-                div.d-flex.justify-content-center.mb-1       
-                    .form-check.text-primary.d-flex
-                        input.form-check-input(id='terms', type='checkbox' checked=false)
-                        label.form-check-label(for='terms').h6 
-                            | I agree all statements in 
-                            a(href='#!') Terms of service                         
-                div.d-flex.justify-content-center
-                    input(type='submit' value="Register")#SignUp.btn.main-color.m-4
-                    
+                .col-md-6.col-12.align-self-center 
+                    form(method='POST' action='/signup').mt-4.mx-1.mx-md-4
+                        div.d-flex.flex-row.align-items-center.mb-4 
+                            i.fa.fa-user.fa-lg.me-3.fa-fw.pr-2.text-primary
+                            .form-outline.flex-fill.mb-0
+                                input.form-control(type='text', name='name' autofocus=true placeholder='Логин' required)
+                        div.d-flex.flex-row.align-items-center.mb-4 
+                            i.fa.fa-envelope.fa-lg.me-3.fa-fw.pr-2.text-primary
+                            .form-outline.flex-fill.mb-0
+                                input.form-control(type='email', name='email' placeholder='Почта' required)
+                        div.d-flex.flex-row.align-items-center.mb-4 
+                            i.fa.fa-lock.fa-lg.me-3.fa-fw.pr-2.text-primary
+                            .form-outline.flex-fill.mb-0
+                                input.form-control(type='password', name='password' placeholder='Пароль' required)
+                        div.d-flex.justify-content-center.mb-1       
+                            .form-check.text-primary.d-flex
+                                input.form-check-input(id='terms', type='checkbox' checked=false)
+                                label.form-check-label(for='terms').h6 
+                                    | Я согласен с  
+                                    a(href='#!') условиями                         
+                        div.d-flex.justify-content-center
+                            input(type='submit' value="Создать аккаунт").signBtn.btn.m-4
+                        
