@@ -19,7 +19,7 @@ const { json } = require("express");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
 
-const PORT = process.env.PORT || 8888;
+const PORT = process.env.PORT;
 
 // and now You can use 2.x express dynamicHelpers
 require("express-dynamic-helpers-patch")(app);
