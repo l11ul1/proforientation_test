@@ -4,7 +4,8 @@ const connectionOptions = { useNewUrlParser: true, useUnifiedTopology: true };
 const router = express.Router();
 const authenticate = require("../middleware/authenticate");
 const path = require("path");
-
+const url =
+	"mongodb+srv://admin:3989302As@cluster0.o2m8r.mongodb.net/prof_orientation_test_db?retryWrites=true&w=majority";
 router.use(
 	"/css",
 	express.static(path.join("node_modules/bootstrap/dist/css"))
@@ -55,7 +56,7 @@ let catD = [];
 let catE = [];
 
 mongoose
-	.connect(process.env.DATABASE, connectionOptions)
+	.connect(url, connectionOptions)
 	.then(() => {
 		console.log("Questions connected successfully");
 	})
