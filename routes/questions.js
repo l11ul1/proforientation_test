@@ -12,6 +12,7 @@ router.use(
 );
 router.use("/js", express.static(path.join("node_modules/bootstrap/dist/js")));
 router.use("/js", express.static(path.join("node_modules/jquery/dist")));
+const $ = require("jquery");
 
 let userId = "";
 

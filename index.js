@@ -3,7 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
 const bodyParser = require("body-parser");
-const e = require("express");
+const $ = require("jquery");
 require("dotenv").config();
 
 const app = express();
@@ -33,6 +33,10 @@ app.dynamicHelpers({
 app.use(cookieParser());
 app.use(session({ secret: "secret", resave: false, saveUninitialized: true }));
 
+app.use("/css", express.static(path.join("node_modules/bootstrap/dist/css")));
+app.use("/js", express.static(path.join("node_modules/jquery/dist/")));
+app.use("/js", express.static(path.join("node_modules/bootstrap/dist/js")));
+
 app.use("/", userAuth);
 app.use("/questions", questions);
 app.use("/profile/", userCabinet);
@@ -40,10 +44,6 @@ app.use("/profile/", userCabinet);
 //connect pug files
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
-
-app.use("/css", express.static(path.join("node_modules/bootstrap/dist/css")));
-app.use("/js", express.static(path.join("node_modules/bootstrap/dist/js")));
-app.use("/js", express.static(path.join("node_modules/jquery/dist")));
 
 //create a server
 app.listen(PORT, () => {

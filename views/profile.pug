@@ -8,36 +8,36 @@ block content
                 p.h2.text-center.mt-4.font-weight-bold.text-primary Добро пожаловать — #{name}       
     if (results != 0)  
         .container.bg-white.mt-4.secondary-shadow
-            div.row.d-flex.justify-content-center.align-items-center.m-2
+            .col.flex-column.d-flex.justify-content-center.align-items-center.m-2
                 .col-12.my-2
                     p.text-center.mt-2.container-title.text-primary Результаты вашего прошлого теста:
-                .col-md-12.mb-3
+                .col-12.mb-3
                     .progress.skill-bar
-                        .progress-bar(role='progressbar' aria-valuenow=`${results.catA}` aria-valuemin='15' aria-valuemax='100').bg-warning
+                        .progress-bar(role='progressbar' aria-valuenow=`${results.catA}` aria-valuemin='15' aria-valuemax='100')
                             .skill
                                 i.fa.fa-star
                                 |  Графический дизайн: 
                                 i.val #{" "+parseInt(results.catA)}%
                     .progress.skill-bar
-                        .progress-bar(role='progressbar' aria-valuenow=`${results.catB}` aria-valuemin='15' aria-valuemax='100').bg-warning
+                        .progress-bar(role='progressbar' aria-valuenow=`${results.catB}` aria-valuemin='15' aria-valuemax='100')
                             .skill
                                 i.fa.fa-star
                                 |  Физика:
                                 i.val #{" "+parseInt(results.catB)}%
                     .progress.skill-bar
-                        .progress-bar(role='progressbar'  aria-valuenow=`${results.catC}` aria-valuemin='15' aria-valuemax='100').bg-warning
+                        .progress-bar(role='progressbar'  aria-valuenow=`${results.catC}` aria-valuemin='15' aria-valuemax='100')
                             .skill
                                 i.fa.fa-star
                                 |  Digital Marketing: 
                                 i.val #{parseInt(results.catC)}% 
                     .progress.skill-bar
-                        .progress-bar(role='progressbar'  aria-valuenow=`${results.catD}` aria-valuemin='15' aria-valuemax='100').bg-warning
+                        .progress-bar(role='progressbar'  aria-valuenow=`${results.catD}` aria-valuemin='15' aria-valuemax='100')
                             .skill
                                 i.fa.fa-star
                                 |  Mатематика: 
                                 i.val #{parseInt(results.catD)}% 
                     .progress.skill-bar
-                        .progress-bar(role='progressbar'  aria-valuenow=`${results.catE}` aria-valuemin='15' aria-valuemax='100').bg-warning 
+                        .progress-bar(role='progressbar'  aria-valuenow=`${results.catE}` aria-valuemin='15' aria-valuemax='100')
                                 .skill
                                     i.fa.fa-star
                                     |  ЧОП:  

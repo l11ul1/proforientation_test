@@ -14,7 +14,7 @@ const authenticate = require("../middleware/authenticate");
 const { userAuth } = require("./userAuth");
 
 mongoose
-	.connect(process.env.DATABASE, connectionOptions)
+	.connect(url, connectionOptions)
 	.then(() => {
 		console.log("Users connected successfully");
 	})
