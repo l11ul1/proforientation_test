@@ -1,5 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 
+:root {
+	--fs-xl: clamp(3.5rem, 12vw + 1rem, 10rem);
+	--fs-900: clamp(3rem, 10vw + 1rem, 9rem);
+	--fs-800: clamp(2.75rem, 8vw + 1rem, 7.25rem);
+	--fs-700: clamp(2.5rem, 7vw + 1rem, 6rem);
+	--fs-600: clamp(2rem, 6vw + 1rem, 4.25rem);
+	--fs-500: clamp(1.5rem, 5vw + 1rem, 3.25rem);
+	--fs-400: clamp(1.25rem, 4vw + 1rem, 2.5rem);
+	--fs-300: clamp(1rem, 3vw + 1rem, 2rem);
+	--fs-200: clamp(0.75rem, 1.5vw + 1rem, 1.25rem);
+	--fs-100: clamp(0.5rem, 1vw + 1rem, 1rem);
+}
+
 body {
 	font-family: "Inter", Sans-serif;
 	font-size: 1rem;
@@ -19,14 +32,14 @@ body {
 }
 
 .title {
-	font-size: 3.25rem;
+	font-size: var(--fs-500);
 	font-weight: 900;
 	text-shadow: 0px 0px 10px rgb(0 0 0 / 30%);
 	color: white;
 }
 
 .nav-p {
-	font-size: 1rem;
+	font-size: var(--fs-100);
 	font-weight: 600;
 	color: white;
 	border-radius: 0;
@@ -75,7 +88,7 @@ body {
 
 .section-title {
 	font-family: "Inter", Sans-serif;
-	font-size: 4rem;
+	font-size: var(--fs-600);
 	word-wrap: break-word;
 	font-weight: 900;
 	line-height: 1;
@@ -83,14 +96,8 @@ body {
 
 .section-subtitle {
 	font-family: "Inter", Sans-serif;
-	font-size: 1.25rem;
+	font-size: var(--fs-200);
 	font-weight: 400;
-}
-
-@media (min-width: 768px) {
-	.section-title {
-		font-size: 4.5rem;
-	}
 }
 
 .carousel-image {
@@ -182,7 +189,7 @@ body {
 
 .testBtn {
 	font-family: "Inter", Sans-serif;
-	font-size: 1.25rem;
+	font-size: var(--fs-200);
 	font-weight: 700;
 	fill: #ffffff;
 	color: #ffffff;
@@ -210,7 +217,7 @@ body {
 }
 
 #all-in-one_title {
-	font-size: 4rem;
+	font-size: var(--fs-600);
 	color: #ffffff;
 	font-family: "Inter", Sans-serif;
 	font-weight: 900;
@@ -232,7 +239,7 @@ body {
 
 .whom-title {
 	font-family: "Inter", Sans-serif;
-	font-size: 4rem;
+	font-size: var(--fs-600);
 	font-weight: 900;
 	text-decoration: underline;
 	z-index: 1;
@@ -318,7 +325,7 @@ body {
 
 .cards-text {
 	font-family: "Inter", Sans-serif;
-	font-size: 1.25rem;
+	font-size: var(--fs-200);
 	font-weight: 400;
 	color: white;
 	padding-top: 10px;
@@ -327,7 +334,7 @@ body {
 
 .cards-title {
 	font-family: "Inter", Sans-serif;
-	font-size: 2.25rem;
+	font-size: var(--fs-400);
 	font-weight: 800;
 }
 
@@ -356,12 +363,12 @@ hr {
 }
 
 .contacts {
-	font-size: 1rem;
+	font-size: var(--fs-100);
 	font-weight: 400;
 }
 
 .heading-title {
-	font-size: 1rem;
+	font-size: var(--fs-100);
 	font-weight: 400;
 }
 
@@ -461,7 +468,7 @@ footer {
 }
 
 .progress .skill {
-	font-size: 0.8rem;
+	font-size: var(--fs-100);
 	line-height: 32px;
 	padding: 0;
 	margin: 0 0 0 20px;
@@ -665,13 +672,13 @@ footer {
 }
 
 .all-in-one-card_title {
-	font-size: 1.5rem;
+	font-size: var(--fs-300);
 }
 
 .all-in-one-card_text {
 	color: #3d4e84;
 	font-family: "Inter", Sans-serif;
-	font-size: 1.15rem;
+	font-size: var(--fs-200);
 	font-weight: 400;
 }
 
@@ -718,14 +725,14 @@ footer {
 }
 
 .authors-section_title {
-	font-size: 3.75rem;
+	font-size: var(--fs-600);
 	font-weight: 900;
 	text-decoration: underline;
 	color: #d67c42;
 }
 
 .authors-section_text {
-	font-size: 1.25rem;
+	font-size: var(--fs-200);
 	color: #d67c42;
 	margin: 0% 0% 0% 0%;
 	padding: 2% 10% 0 10%;
@@ -733,7 +740,7 @@ footer {
 
 .features-section_info-feature {
 	font-family: "Inter", Sans-serif;
-	font-size: 1.25rem;
+	font-size: var(--fs-200);
 	font-weight: 400;
 	position: relative;
 }
@@ -741,7 +748,7 @@ footer {
 .features-section_info-title {
 	color: #3d4e84;
 	font-family: "Inter", Sans-serif;
-	font-size: 3.5rem;
+	font-size: var(--fs-500);
 	font-weight: 900;
 	text-decoration: underline;
 	overflow-wrap: break-word;
@@ -836,12 +843,12 @@ footer {
 	border-color: #3d4e84;
 	transition: background 0.3s, border 0.3s, border-radius 0.3s,
 		box-shadow 0.3s;
-	font-size: 1.25rem;
+	font-size: var(--fs-200);
 }
 
 .what-to-do_heading {
 	font-weight: bold;
-	font-size: 1.5rem;
+	font-size: var(--fs-300);
 }
 
 .what-to-do_content-wrapper {
@@ -849,7 +856,7 @@ footer {
 }
 
 .what-to-do_title {
-	font-size: 2.25rem;
+	font-size: var(--fs-400) rem;
 	font-weight: 900;
 	text-decoration: underline;
 	padding: 2rem;
@@ -877,7 +884,7 @@ footer {
 }
 .about-us-card_description {
 	padding: 0% 02% 0% 02%;
-	font-size: 1.15rem;
+	font-size: var(--fs-200);
 	font-weight: 500;
 	color: #dedede;
 }
@@ -917,7 +924,7 @@ footer {
 }
 
 .about-us-card_btn_btn {
-	font-size: 1.15rem;
+	font-size: var(--fs-200);
 	font-weight: 700;
 	fill: #ffffff;
 	color: #ffffff;
@@ -952,7 +959,7 @@ footer {
 }
 
 .sponsors_title-text {
-	font-size: 4rem;
+	font-size: var(--fs-600);
 	font-weight: 900;
 	overflow-wrap: break-word;
 	padding: 2rem;
@@ -1009,7 +1016,7 @@ footer {
 .category p {
 	color: #3d4e84;
 	align-items: center;
-	font-size: 2rem;
+	font-size: var(--fs-300);
 	font-weight: 600;
 	margin: 0;
 }
@@ -1017,7 +1024,7 @@ footer {
 .category-secondary p {
 	color: #ffff;
 	align-items: center;
-	font-size: 2rem;
+	font-size: var(--fs-300);
 	font-weight: 600;
 	margin: 0;
 }
@@ -1033,6 +1040,6 @@ footer {
 
 .container-title {
 	font-family: "Inter", Sans-serif;
-	font-size: 2rem;
+	font-size: var(--fs-300);
 	font-weight: 600;
 }
