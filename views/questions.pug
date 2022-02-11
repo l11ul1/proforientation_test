@@ -3,9 +3,9 @@ extends layout
 block content
     div#question-body-wrapper
         #question-body-overlay
-        div.row.d-flex.justify-content-center
-            .col-12.col-md-8#questionWrapper
-                div.col
+        .col.d-flex.justify-content-center.flex-column.flex-md-row
+            .col-12.col-md-8.col-xl-9#questionWrapper.d-flex
+                .col.d-flex.flex-column.p-5
                     div
                         h1.text-center.py-4.questions__question #{question.question_body}
                     #question-answers.text-secondary.p-5.bg-white.rounded
@@ -16,12 +16,12 @@ block content
                                     label(for=i).option-name.px-2.form-check-label 
                                         p.font-weight-light #{answer}
                             input(type='submit' value='Следующий вопрос').my-4.main-color-inversed.btn
-            .col-12.col-md-4#digitalMarketing.d-flex.justify-content-center.align-items-center.text-center
+            .col-12.col-md-4.col-xl-3#digitalMarketing.d-flex.flex-column
                 #digitalMarketingOverlay
-                div.col.flex-column.d-flex.justify-content-center
+                .col.d-flex.flex-column.justify-content-center
                     div#headingDigitalMarketing
-                        h5 Секция
-                        h2.title.text-center 
+                        h5.text-center Секция
+                        h2.question-section_title.text-center 
                             if (question.question_category == "Design")
                                 u Графический дизайн
                             if (question.question_category == "Math")

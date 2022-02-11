@@ -2,6 +2,7 @@
 
 :root {
 	--fs-xl: clamp(3.5rem, 12vw + 1rem, 10rem);
+	--fs-md: clamp(1.5rem, 1.25vw + 1rem, 3rem);
 	--fs-900: clamp(3rem, 10vw + 1rem, 9rem);
 	--fs-800: clamp(2.75rem, 8vw + 1rem, 7.25rem);
 	--fs-700: clamp(2.5rem, 7vw + 1rem, 6rem);
@@ -541,7 +542,7 @@ footer {
 	transition: background 0.3s, border 0.3s, border-radius 0.3s,
 		box-shadow 0.3s;
 	margin: 05% 0% 05% 0%;
-	padding: 10% 10% 10% 10%;
+	padding: 5% 5% 5% 5%;
 	border-radius: 100px 0px 0px 100px;
 	z-index: 3;
 }
@@ -551,6 +552,7 @@ footer {
 		box-shadow 0.3s;
 	padding: 5% 5% 5% 5%;
 	position: relative;
+	min-height: 60vh;
 }
 
 #question-body-overlay {
@@ -597,7 +599,7 @@ footer {
 .questions__question {
 	color: #3d4e84;
 	font-family: "Inter", Sans-serif;
-	font-size: 31px;
+	font-size: var(--fs-300);
 	font-weight: 600;
 }
 
@@ -673,6 +675,11 @@ footer {
 
 .all-in-one-card_title {
 	font-size: var(--fs-300);
+}
+
+.question-section_title {
+	font-size: var(--fs-md);
+	font-weight: bold;
 }
 
 .all-in-one-card_text {
